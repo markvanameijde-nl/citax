@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boodschappenlijst</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f2f5;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a1a2e;
+            margin-bottom: 24px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+            background: #fff;
+        }
+
+        .input-row input:focus {
+            border-color: #4a6cf7;
+        }
+
+        .input-row button {
+            padding: 12px 20px;
+            background: #4a6cf7;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        .input-row button:hover {
+            background: #3a5ce5;
+        }
+
+        .input-row button:active {
+            background: #2a4cd3;
+        }
+
+        .list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            cursor: grab;
+            transition: box-shadow 0.2s, opacity 0.2s, transform 0.15s;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .list-item:active {
+            cursor: grabbing;
+        }
+
+        .list-item.dragging {
+            opacity: 0.5;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        .list-item.drag-over {
+            transform: translateY(2px);
+            box-shadow: 0 -2px 0 0 #4a6cf7;
+        }
+
+        .drag-handle {
+            color: #bbb;
+            font-size: 18px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            touch-action: none;
+        }
+
+        .item-checkbox {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #d0d0d0;
+            border-radius: 6px;
+            flex-shrink: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            background: #fff;
+        }
+
+        .item-checkbox:hover {
+            border-color: #4a6cf7;
+        }
+
+        .item-checkbox.checked {
+            background: #4a6cf7;
+            border-color: #4a6cf7;
+        }
+
+        .item-checkbox.checked::after {
+            content: '';
+            width: 6px;
+            height: 10px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-bottom: 2px;
+        }
+
+        .item-name {
+            flex: 1;
+            font-size: 16px;
+            color: #333;
+            transition: all 0.2s;
+        }
+
+        .list-item.checked .item-name {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #ccc;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 6px;
+            transition: all 0.15s;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .delete-btn:hover {
+            color: #e74c3c;
+            background: #fef1f0;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 48px 20px;
+            color: #aaa;
+            font-size: 16px;
+        }
+
+        .separator {
+            height: 1px;
+            background: #e8e8e8;
+            margin: 12px 0;
+        }
+
+        /* Touch-friendly adjustments */
+        @media (hover: none) and (pointer: coarse) {
+            .list-item {
+                padding: 14px 16px;
+            }
+
+            .delete-btn {
+                padding: 6px 10px;
+                font-size: 22px;
+            }
+
+            .item-checkbox {
+                width: 26px;
+                height: 26px;
+            }
+        }
+
+        /* Subtle animation for new items */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .list-item.new {
+            animation: slideIn 0.2s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Boodschappenlijst</h1>
+
+        <div class="input-row">
+            <input type="text" id="product-input" placeholder="Product toevoegen..." autocomplete="off">
+            <button id="add-btn">Toevoegen</button>
+        </div>
+
+        <ul class="list" id="shopping-list"></ul>
+        <div class="empty-state" id="empty-state">De lijst is leeg. Voeg een product toe!</div>
+    </div>
+
+    <script>
+        const input = document.getElementById('product-input');
+        const addBtn = document.getElementById('add-btn');
+        const listEl = document.getElementById('shopping-list');
+        const emptyState = document.getElementById('empty-state');
+
+        let items = loadItems();
+        let dragItem = null;
+        let dragIndex = -1;
+
+        // --- Persistence ---
+        function loadItems() {
+            try {
+                return JSON.parse(localStorage.getItem('shopping-list')) || [];
+            } catch {
+                return [];
+            }
+        }
+
+        function saveItems() {
+            localStorage.setItem('shopping-list', JSON.stringify(items));
+        }
+
+        // --- Rendering ---
+        function render() {
+            listEl.innerHTML = '';
+
+            const unchecked = items.filter(i => !i.checked);
+            const checked = items.filter(i => i.checked);
+            const hasBoth = unchecked.length > 0 && checked.length > 0;
+
+            unchecked.forEach(item => listEl.appendChild(createItemEl(item)));
+
+            if (hasBoth) {
+                const sep = document.createElement('li');
+                sep.className = 'separator';
+                sep.setAttribute('aria-hidden', 'true');
+                listEl.appendChild(sep);
+            }
+
+            checked.forEach(item => listEl.appendChild(createItemEl(item)));
+
+            emptyState.style.display = items.length === 0 ? 'block' : 'none';
+        }
+
+        function createItemEl(item) {
+            const li = document.createElement('li');
+            li.className = 'list-item' + (item.checked ? ' checked' : '');
+            li.draggable = true;
+            li.dataset.id = item.id;
+
+            const handle = document.createElement('span');
+            handle.className = 'drag-handle';
+            handle.innerHTML = '&#x2630;';
+
+            const checkbox = document.createElement('div');
+            checkbox.className = 'item-checkbox' + (item.checked ? ' checked' : '');
+            checkbox.addEventListener('click', () => toggleItem(item.id));
+
+            const name = document.createElement('span');
+            name.className = 'item-name';
+            name.textContent = item.name;
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'delete-btn';
+            deleteBtn.innerHTML = '&times;';
+            deleteBtn.title = 'Verwijderen';
+            deleteBtn.addEventListener('click', () => removeItem(item.id));
+
+            li.appendChild(handle);
+            li.appendChild(checkbox);
+            li.appendChild(name);
+            li.appendChild(deleteBtn);
+
+            // Drag events
+            li.addEventListener('dragstart', onDragStart);
+            li.addEventListener('dragend', onDragEnd);
+            li.addEventListener('dragover', onDragOver);
+            li.addEventListener('dragenter', onDragEnter);
+            li.addEventListener('dragleave', onDragLeave);
+            li.addEventListener('drop', onDrop);
+
+            // Touch drag support
+            li.addEventListener('touchstart', onTouchStart, { passive: false });
+            li.addEventListener('touchmove', onTouchMove, { passive: false });
+            li.addEventListener('touchend', onTouchEnd);
+
+            return li;
+        }
+
+        // --- Item operations ---
+        function addItem(name) {
+            name = name.trim();
+            if (!name) return;
+
+            items.push({ id: Date.now().toString(), name, checked: false });
+            saveItems();
+            render();
+
+            // Animate the new item
+            const allItems = listEl.querySelectorAll('.list-item:not(.checked)');
+            const last = allItems[allItems.length - 1];
+            if (last) {
+                last.classList.add('new');
+                last.addEventListener('animationend', () => last.classList.remove('new'), { once: true });
+            }
+        }
+
+        function removeItem(id) {
+            items = items.filter(i => i.id !== id);
+            saveItems();
+            render();
+        }
+
+        function toggleItem(id) {
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+            item.checked = !item.checked;
+            saveItems();
+            render();
+        }
+
+        // --- Drag and drop (mouse) ---
+        function getItemGroup(el) {
+            const item = items.find(i => i.id === el.dataset.id);
+            return item ? item.checked : false;
+        }
+
+        function onDragStart(e) {
+            dragItem = this;
+            dragIndex = getVisualIndex(this);
+            this.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', this.dataset.id);
+        }
+
+        function onDragEnd() {
+            this.classList.remove('dragging');
+            clearDragOver();
+            dragItem = null;
+            dragIndex = -1;
+        }
+
+        function onDragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+        }
+
+        function onDragEnter(e) {
+            e.preventDefault();
+            if (this === dragItem || this.classList.contains('separator')) return;
+            if (getItemGroup(this) !== getItemGroup(dragItem)) return;
+            clearDragOver();
+            this.classList.add('drag-over');
+        }
+
+        function onDragLeave() {
+            this.classList.remove('drag-over');
+        }
+
+        function onDrop(e) {
+            e.preventDefault();
+            if (this === dragItem || this.classList.contains('separator')) return;
+            if (getItemGroup(this) !== getItemGroup(dragItem)) return;
+
+            reorderItems(dragItem.dataset.id, this.dataset.id);
+            clearDragOver();
+        }
+
+        function clearDragOver() {
+            listEl.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+        }
+
+        function getVisualIndex(el) {
+            return [...listEl.querySelectorAll('.list-item')].indexOf(el);
+        }
+
+        function reorderItems(fromId, toId) {
+            const fromIdx = items.findIndex(i => i.id === fromId);
+            const toIdx = items.findIndex(i => i.id === toId);
+            if (fromIdx === -1 || toIdx === -1) return;
+
+            const [moved] = items.splice(fromIdx, 1);
+            items.splice(toIdx, 0, moved);
+            saveItems();
+            render();
+        }
+
+        // --- Touch drag support ---
+        let touchStartY = 0;
+        let touchCurrentEl = null;
+        let touchClone = null;
+        let isTouchDragging = false;
+        let touchStartTimer = null;
+        let touchStartX = 0;
+
+        function onTouchStart(e) {
+            const touch = e.touches[0];
+            touchStartX = touch.clientX;
+            touchStartY = touch.clientY;
+            dragItem = this;
+
+            // Long press to start drag
+            touchStartTimer = setTimeout(() => {
+                isTouchDragging = true;
+                this.classList.add('dragging');
+
+                // Create visual clone
+                touchClone = this.cloneNode(true);
+                touchClone.style.position = 'fixed';
+                touchClone.style.left = '20px';
+                touchClone.style.right = '20px';
+                touchClone.style.width = this.offsetWidth + 'px';
+                touchClone.style.top = touch.clientY - this.offsetHeight / 2 + 'px';
+                touchClone.style.zIndex = '1000';
+                touchClone.style.opacity = '0.9';
+                touchClone.style.pointerEvents = 'none';
+                touchClone.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)';
+                document.body.appendChild(touchClone);
+            }, 200);
+        }
+
+        function onTouchMove(e) {
+            if (!isTouchDragging) {
+                const touch = e.touches[0];
+                const dx = Math.abs(touch.clientX - touchStartX);
+                const dy = Math.abs(touch.clientY - touchStartY);
+                if (dx > 10 || dy > 10) {
+                    clearTimeout(touchStartTimer);
+                }
+                return;
+            }
+
+            e.preventDefault();
+            const touch = e.touches[0];
+
+            if (touchClone) {
+                touchClone.style.top = touch.clientY - dragItem.offsetHeight / 2 + 'px';
+            }
+
+            // Find element under touch
+            if (touchClone) touchClone.style.display = 'none';
+            const elBelow = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (touchClone) touchClone.style.display = '';
+
+            const listItem = elBelow ? elBelow.closest('.list-item') : null;
+            clearDragOver();
+
+            if (listItem && listItem !== dragItem && getItemGroup(listItem) === getItemGroup(dragItem)) {
+                listItem.classList.add('drag-over');
+                touchCurrentEl = listItem;
+            } else {
+                touchCurrentEl = null;
+            }
+        }
+
+        function onTouchEnd() {
+            clearTimeout(touchStartTimer);
+
+            if (isTouchDragging && touchCurrentEl && dragItem) {
+                reorderItems(dragItem.dataset.id, touchCurrentEl.dataset.id);
+            }
+
+            if (dragItem) dragItem.classList.remove('dragging');
+            if (touchClone) touchClone.remove();
+
+            isTouchDragging = false;
+            touchClone = null;
+            touchCurrentEl = null;
+            dragItem = null;
+        }
+
+        // --- Event listeners ---
+        addBtn.addEventListener('click', () => {
+            addItem(input.value);
+            input.value = '';
+            input.focus();
+        });
+
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                addItem(input.value);
+                input.value = '';
+            }
+        });
+
+        // --- Initial render ---
+        render();
+    </script>
+</body>
+</html>
