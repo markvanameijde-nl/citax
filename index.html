@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 100%;
+            max-width: 500px;
             margin: 0 auto;
         }
 
@@ -28,7 +28,7 @@
             text-align: center;
             color: #f0f0f0;
             margin-bottom: 24px;
-            font-size: 84px;
+            font-size: 28px;
             font-weight: 700;
         }
 
@@ -40,10 +40,10 @@
 
         .input-row input {
             flex: 1;
-            padding: 20px 24px;
+            padding: 12px 16px;
             border: 2px solid #3a3a5c;
-            border-radius: 16px;
-            font-size: 48px;
+            border-radius: 12px;
+            font-size: 16px;
             outline: none;
             transition: border-color 0.2s;
             background: #2a2a4a;
@@ -59,12 +59,12 @@
         }
 
         .input-row button {
-            padding: 20px 32px;
+            padding: 12px 20px;
             background: #4a6cf7;
             color: #fff;
             border: none;
-            border-radius: 16px;
-            font-size: 48px;
+            border-radius: 12px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.2s;
@@ -89,8 +89,8 @@
         .list-item {
             display: flex;
             align-items: center;
-            gap: 16px;
-            padding: 20px 20px;
+            gap: 10px;
+            padding: 12px 14px;
             background: #2a2a4a;
             border-radius: 12px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.2);
@@ -116,7 +116,7 @@
 
         .drag-handle {
             color: #666;
-            font-size: 54px;
+            font-size: 18px;
             flex-shrink: 0;
             display: flex;
             align-items: center;
@@ -124,10 +124,10 @@
         }
 
         .item-checkbox {
-            width: 66px;
-            height: 66px;
-            border: 3px solid #555;
-            border-radius: 12px;
+            width: 22px;
+            height: 22px;
+            border: 2px solid #555;
+            border-radius: 6px;
             flex-shrink: 0;
             cursor: pointer;
             display: flex;
@@ -148,17 +148,17 @@
 
         .item-checkbox.checked::after {
             content: '';
-            width: 18px;
-            height: 30px;
+            width: 6px;
+            height: 10px;
             border: solid #fff;
-            border-width: 0 4px 4px 0;
+            border-width: 0 2px 2px 0;
             transform: rotate(45deg);
-            margin-bottom: 6px;
+            margin-bottom: 2px;
         }
 
         .item-name {
             flex: 1;
-            font-size: 48px;
+            font-size: 16px;
             color: #e0e0e0;
             transition: all 0.2s;
         }
@@ -172,9 +172,9 @@
             background: none;
             border: none;
             color: #666;
-            font-size: 60px;
+            font-size: 20px;
             cursor: pointer;
-            padding: 6px 12px;
+            padding: 2px 6px;
             border-radius: 6px;
             transition: all 0.15s;
             flex-shrink: 0;
@@ -190,7 +190,7 @@
             text-align: center;
             padding: 48px 20px;
             color: #aaa;
-            font-size: 48px;
+            font-size: 16px;
         }
 
         .separator {
@@ -202,17 +202,17 @@
         /* Touch-friendly adjustments */
         @media (hover: none) and (pointer: coarse) {
             .list-item {
-                padding: 24px 20px;
+                padding: 14px 16px;
             }
 
             .delete-btn {
-                padding: 10px 16px;
-                font-size: 66px;
+                padding: 6px 10px;
+                font-size: 22px;
             }
 
             .item-checkbox {
-                width: 72px;
-                height: 72px;
+                width: 26px;
+                height: 26px;
             }
         }
 
