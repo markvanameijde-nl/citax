@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>Rekenen oefenen</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e;
+            color: #f0f0f0;
+            overflow: hidden;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            transition: background-color 0.3s ease;
+        }
+
+        body.correct { background: #2ecc71; }
+        body.wrong   { background: #e74c3c; }
+
+        .screen {
+            flex: 1;
+            display: none;
+            flex-direction: column;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .screen.active { display: flex; }
+
+        /* --- Home screen --- */
+        #home h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin: 24px 0 8px;
+        }
+        #home .subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+        }
+        .op-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            align-content: center;
+            padding-bottom: 20px;
+        }
+        .op-btn {
+            background: #2a2a4a;
+            color: #fff;
+            border: 3px solid #3a3a5c;
+            border-radius: 24px;
+            font-size: 6rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.1s, background 0.2s, border-color 0.2s;
+            min-height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+        .op-btn:hover { background: #3a3a6a; border-color: #5a7cf7; }
+        .op-btn:active { transform: scale(0.97); }
+        .op-btn.plus   { color: #5acf8f; }
+        .op-btn.minus  { color: #f7b74a; }
+        .op-btn.times  { color: #f75a8c; }
+        .op-btn.divide { color: #5a9cf7; }
+
+        /* --- Practice screen --- */
+        #practice {
+            justify-content: space-between;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+        .back-btn {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .back-btn:hover { background: rgba(255,255,255,0.2); }
+
+        .score {
+            display: flex;
+            gap: 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .score .good { color: #5acf8f; }
+        .score .bad  { color: #f75a8c; }
+        body.correct .score .good,
+        body.correct .score .bad,
+        body.wrong   .score .good,
+        body.wrong   .score .bad { color: #fff; }
+
+        .sum-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            padding: 20px 0;
+        }
+        .sum {
+            font-size: 7rem;
+            font-weight: 800;
+            text-align: center;
+            letter-spacing: 0.05em;
+            line-height: 1.1;
+        }
+        .feedback-text {
+            font-size: 2rem;
+            font-weight: 700;
+            min-height: 2.2rem;
+            text-align: center;
+        }
+
+        .mic {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: #2a2a4a;
+            border: 4px solid #3a3a5c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            position: relative;
+        }
+        .mic svg { width: 56px; height: 56px; fill: #aaa; transition: fill 0.2s; }
+        .mic.listening {
+            background: #4a6cf7;
+            border-color: #6a8cff;
+            animation: pulse 1.2s ease-in-out infinite;
+        }
+        .mic.listening svg { fill: #fff; }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(74,108,247,0.6); }
+            50%      { box-shadow: 0 0 0 20px rgba(74,108,247,0); }
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-bottom: 12px;
+        }
+        .btn-row {
+            display: flex;
+            gap: 10px;
+        }
+        .ctrl-btn {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .ctrl-btn:hover { background: rgba(255,255,255,0.2); }
+        .ctrl-btn:active { transform: scale(0.98); }
+
+        .fallback {
+            display: flex;
+            gap: 8px;
+        }
+        .fallback input {
+            flex: 1;
+            padding: 14px 16px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            background: rgba(0,0,0,0.2);
+            color: #fff;
+            font-size: 1.2rem;
+            text-align: center;
+            outline: none;
+        }
+        .fallback input:focus { border-color: #6a8cff; }
+        .fallback button {
+            padding: 14px 20px;
+            background: #4a6cf7;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .error-banner {
+            background: rgba(231, 76, 60, 0.2);
+            border: 1px solid rgba(231, 76, 60, 0.5);
+            color: #ffdada;
+            padding: 10px 14px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+        .error-banner:empty { display: none; }
+
+        @media (max-width: 480px) {
+            .op-btn { font-size: 4.5rem; min-height: 110px; border-radius: 20px; }
+            .sum { font-size: 4.5rem; }
+            .feedback-text { font-size: 1.5rem; }
+            .mic { width: 90px; height: 90px; }
+            .mic svg { width: 44px; height: 44px; }
+            #home h1 { font-size: 1.6rem; }
+        }
+
+        @media (max-height: 600px) {
+            .sum { font-size: 4rem; }
+            .mic { width: 80px; height: 80px; }
+            .mic svg { width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Home screen -->
+<section id="home" class="screen active">
+    <h1>Rekenen oefenen</h1>
+    <p class="subtitle">Kies een bewerking</p>
+    <div class="op-grid">
+        <button class="op-btn plus"   data-op="+" aria-label="Optellen">+</button>
+        <button class="op-btn minus"  data-op="-" aria-label="Aftrekken">−</button>
+        <button class="op-btn times"  data-op="*" aria-label="Vermenigvuldigen">×</button>
+        <button class="op-btn divide" data-op="/" aria-label="Delen">÷</button>
+    </div>
+</section>
+
+<!-- Practice screen -->
+<section id="practice" class="screen">
+    <div class="top-bar">
+        <button class="back-btn" id="back-btn">&larr; Terug</button>
+        <div class="score">
+            <span class="good">&#10003; <span id="score-good">0</span></span>
+            <span class="bad">&#10007; <span id="score-bad">0</span></span>
+        </div>
+    </div>
+
+    <div class="sum-area">
+        <div class="sum" id="sum">&nbsp;</div>
+        <div class="mic" id="mic" aria-label="Microfoon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/>
+            </svg>
+        </div>
+        <div class="feedback-text" id="feedback">&nbsp;</div>
+    </div>
+
+    <div class="controls">
+        <div class="btn-row">
+            <button class="ctrl-btn" id="repeat-btn">&#128266; Herhaal som</button>
+            <button class="ctrl-btn" id="listen-btn">&#127908; Luister opnieuw</button>
+        </div>
+        <form class="fallback" id="fallback-form">
+            <input type="number" id="fallback-input" placeholder="Typ je antwoord..." inputmode="numeric" autocomplete="off">
+            <button type="submit">OK</button>
+        </form>
+        <div class="error-banner" id="error-banner"></div>
+    </div>
+</section>
+
+<script>
+(function () {
+    'use strict';
+
+    // ---------- Dutch number helpers ----------
+    const UNITS = ['nul','een','twee','drie','vier','vijf','zes','zeven','acht','negen'];
+    const TEENS = ['tien','elf','twaalf','dertien','veertien','vijftien','zestien','zeventien','achttien','negentien'];
+    const TENS  = ['','','twintig','dertig','veertig','vijftig','zestig','zeventig','tachtig','negentig'];
+
+    function numberToDutch(n) {
+        if (n < 0) return 'min ' + numberToDutch(-n);
+        if (n < 10) return UNITS[n];
+        if (n < 20) return TEENS[n - 10];
+        if (n === 100) return 'honderd';
+        if (n < 100) {
+            const t = Math.floor(n / 10);
+            const u = n % 10;
+            if (u === 0) return TENS[t];
+            const unitWord = UNITS[u];
+            const joiner = (unitWord === 'twee' || unitWord === 'drie') ? 'ën' : 'en';
+            return unitWord + joiner + TENS[t];
+        }
+        // Fallback for >100 (shouldn't happen with our generators, but safe)
+        return String(n);
+    }
+
+    // Build reverse dictionary for parsing spoken input (0–100)
+    const DUTCH_TO_NUM = {};
+    (function buildDict() {
+        for (let i = 0; i <= 100; i++) {
+            const word = numberToDutch(i);
+            DUTCH_TO_NUM[word] = i;
+            DUTCH_TO_NUM[word.replace(/ë/g, 'e')] = i; // without diaeresis
+        }
+        // Common homophones / alternate spellings
+        DUTCH_TO_NUM['één'] = 1;
+        DUTCH_TO_NUM['eén'] = 1;
+    })();
+
+    function parseAnswer(text) {
+        if (!text) return null;
+        text = text.toLowerCase().trim();
+
+        // Direct digit match
+        const digitMatch = text.match(/-?\d+/);
+        if (digitMatch) return parseInt(digitMatch[0], 10);
+
+        // Strip punctuation, split
+        const cleaned = text.replace(/[.,!?;:'"]/g, ' ').replace(/\s+/g, ' ').trim();
+
+        // Try whole phrase
+        if (DUTCH_TO_NUM[cleaned] !== undefined) return DUTCH_TO_NUM[cleaned];
+
+        // Try each word
+        const words = cleaned.split(' ');
+        for (const w of words) {
+            if (DUTCH_TO_NUM[w] !== undefined) return DUTCH_TO_NUM[w];
+        }
+        return null;
+    }
+
+    // ---------- State ----------
+    const OP_SYMBOLS  = { '+': '+', '-': '−', '*': '×', '/': ':' };
+    const OP_SPOKEN   = { '+': 'plus', '-': 'min', '*': 'keer', '/': 'gedeeld door' };
+
+    let currentOp = null;
+    let currentSum = null; // { a, b, op, answer }
+    let score = { good: 0, bad: 0 };
+    let recognition = null;
+    let recognitionAvailable = false;
+    let recognizing = false;
+    let awaitingAnswer = false;
+
+    // ---------- DOM ----------
+    const homeScreen     = document.getElementById('home');
+    const practiceScreen = document.getElementById('practice');
+    const sumEl          = document.getElementById('sum');
+    const feedbackEl     = document.getElementById('feedback');
+    const micEl          = document.getElementById('mic');
+    const scoreGoodEl    = document.getElementById('score-good');
+    const scoreBadEl     = document.getElementById('score-bad');
+    const backBtn        = document.getElementById('back-btn');
+    const repeatBtn      = document.getElementById('repeat-btn');
+    const listenBtn      = document.getElementById('listen-btn');
+    const fallbackForm   = document.getElementById('fallback-form');
+    const fallbackInput  = document.getElementById('fallback-input');
+    const errorBanner    = document.getElementById('error-banner');
+
+    // ---------- Screens ----------
+    function showHome() {
+        stopAll();
+        clearBodyColor();
+        practiceScreen.classList.remove('active');
+        homeScreen.classList.add('active');
+    }
+
+    function showPractice(op) {
+        currentOp = op;
+        score = { good: 0, bad: 0 };
+        updateScore();
+        homeScreen.classList.remove('active');
+        practiceScreen.classList.add('active');
+        nextSum();
+    }
+
+    // ---------- Sum generation ----------
+    function randInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function makeSum(op) {
+        let a, b, answer;
+        switch (op) {
+            case '+':
+                a = randInt(1, 20);
+                b = randInt(1, 20);
+                answer = a + b;
+                break;
+            case '-':
+                a = randInt(1, 20);
+                b = randInt(1, 20);
+                if (b > a) [a, b] = [b, a];
+                answer = a - b;
+                break;
+            case '*':
+                a = randInt(1, 10);
+                b = randInt(1, 10);
+                answer = a * b;
+                break;
+            case '/':
+                answer = randInt(1, 10);
+                b = randInt(1, 10);
+                a = answer * b;
+                break;
+        }
+        return { a, b, op, answer };
+    }
+
+    function nextSum() {
+        clearBodyColor();
+        feedbackEl.textContent = '\u00a0';
+        fallbackInput.value = '';
+        currentSum = makeSum(currentOp);
+        sumEl.textContent = `${currentSum.a} ${OP_SYMBOLS[currentOp]} ${currentSum.b} = ?`;
+        speakSum(currentSum, () => {
+            startListening();
+        });
+    }
+
+    // ---------- Speech synthesis ----------
+    const synth = window.speechSynthesis;
+    let dutchVoice = null;
+
+    function pickDutchVoice() {
+        if (!synth) return null;
+        const voices = synth.getVoices();
+        dutchVoice =
+            voices.find(v => v.lang === 'nl-NL') ||
+            voices.find(v => /^nl/i.test(v.lang)) ||
+            null;
+        return dutchVoice;
+    }
+    if (synth) {
+        pickDutchVoice();
+        if (typeof synth.onvoiceschanged !== 'undefined') {
+            synth.onvoiceschanged = pickDutchVoice;
+        }
+    }
+
+    function speak(text, onEnd) {
+        if (!synth) { if (onEnd) onEnd(); return; }
+        try { synth.cancel(); } catch (e) {}
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'nl-NL';
+        u.rate = 0.95;
+        u.pitch = 1.0;
+        if (dutchVoice) u.voice = dutchVoice;
+        u.onend = () => { if (onEnd) onEnd(); };
+        u.onerror = () => { if (onEnd) onEnd(); };
+        synth.speak(u);
+    }
+
+    function speakSum(sum, onEnd) {
+        const aWord = numberToDutch(sum.a);
+        const bWord = numberToDutch(sum.b);
+        const opWord = OP_SPOKEN[sum.op];
+        speak(`${aWord} ${opWord} ${bWord}`, onEnd);
+    }
+
+    // ---------- Speech recognition ----------
+    function initRecognition() {
+        const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SR) {
+            recognitionAvailable = false;
+            showError('Spraakherkenning niet beschikbaar in deze browser. Typ je antwoord hieronder.');
+            return;
+        }
+        recognitionAvailable = true;
+        recognition = new SR();
+        recognition.lang = 'nl-NL';
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 5;
+
+        recognition.onstart = () => {
+            recognizing = true;
+            micEl.classList.add('listening');
+        };
+        recognition.onend = () => {
+            recognizing = false;
+            micEl.classList.remove('listening');
+        };
+        recognition.onerror = (ev) => {
+            recognizing = false;
+            micEl.classList.remove('listening');
+            if (ev.error === 'not-allowed' || ev.error === 'service-not-allowed') {
+                showError('Microfoon geen toestemming. Gebruik het invoerveld.');
+            } else if (ev.error === 'no-speech') {
+                // Silently allow the user to try again via buttons or input
+            } else if (ev.error === 'audio-capture') {
+                showError('Geen microfoon gevonden. Gebruik het invoerveld.');
+            }
+        };
+        recognition.onresult = (ev) => {
+            if (!awaitingAnswer) return;
+            let parsed = null;
+            for (let i = 0; i < ev.results[0].length && parsed === null; i++) {
+                const transcript = ev.results[0][i].transcript;
+                parsed = parseAnswer(transcript);
+            }
+            if (parsed === null) {
+                // Couldn't parse — let the user try again
+                feedbackEl.textContent = 'Niet verstaan, probeer opnieuw';
+                setTimeout(() => {
+                    if (awaitingAnswer) {
+                        feedbackEl.textContent = '\u00a0';
+                        startListening();
+                    }
+                }, 900);
+                return;
+            }
+            handleAnswer(parsed);
+        };
+    }
+
+    function startListening() {
+        awaitingAnswer = true;
+        if (!recognitionAvailable) {
+            fallbackInput.focus();
+            return;
+        }
+        if (recognizing) return;
+        try {
+            recognition.start();
+        } catch (e) {
+            // Already started or transient error — try again shortly
+            setTimeout(() => {
+                try { recognition.start(); } catch (_) {}
+            }, 200);
+        }
+    }
+
+    function stopListening() {
+        awaitingAnswer = false;
+        if (recognition && recognizing) {
+            try { recognition.stop(); } catch (e) {}
+        }
+        micEl.classList.remove('listening');
+    }
+
+    function stopAll() {
+        awaitingAnswer = false;
+        stopListening();
+        if (synth) { try { synth.cancel(); } catch (e) {} }
+    }
+
+    // ---------- Answer handling ----------
+    function handleAnswer(given) {
+        awaitingAnswer = false;
+        stopListening();
+        const correct = given === currentSum.answer;
+        if (correct) {
+            score.good++;
+            updateScore();
+            document.body.classList.add('correct');
+            feedbackEl.textContent = 'Goed zo!';
+            speak('Goed zo!', () => {});
+            setTimeout(() => { nextSum(); }, 1300);
+        } else {
+            score.bad++;
+            updateScore();
+            document.body.classList.add('wrong');
+            const answerWord = numberToDutch(currentSum.answer);
+            feedbackEl.textContent = `Het juiste antwoord is ${currentSum.answer}`;
+            speak(`Het juiste antwoord is ${answerWord}`, () => {
+                setTimeout(() => { nextSum(); }, 600);
+            });
+            // Fallback timeout in case TTS never finishes
+            setTimeout(() => {
+                if (document.body.classList.contains('wrong')) nextSum();
+            }, 4000);
+        }
+    }
+
+    function updateScore() {
+        scoreGoodEl.textContent = score.good;
+        scoreBadEl.textContent  = score.bad;
+    }
+
+    function clearBodyColor() {
+        document.body.classList.remove('correct', 'wrong');
+    }
+
+    function showError(msg) {
+        errorBanner.textContent = msg;
+    }
+
+    // ---------- Event wiring ----------
+    document.querySelectorAll('.op-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Tap initialises audio context on iOS
+            if (synth) { try { synth.cancel(); } catch (e) {} }
+            showPractice(btn.dataset.op);
+        });
+    });
+
+    backBtn.addEventListener('click', showHome);
+
+    repeatBtn.addEventListener('click', () => {
+        if (!currentSum) return;
+        stopListening();
+        speakSum(currentSum, () => startListening());
+    });
+
+    listenBtn.addEventListener('click', () => {
+        if (!currentSum) return;
+        startListening();
+    });
+
+    fallbackForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = fallbackInput.value.trim();
+        if (val === '') return;
+        const n = parseInt(val, 10);
+        if (isNaN(n)) return;
+        fallbackInput.value = '';
+        handleAnswer(n);
+    });
+
+    // Initialise
+    initRecognition();
+
+    // Safety: stop speech/recognition if tab is hidden
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stopAll();
+    });
+})();
+</script>
+</body>
+</html>
