@@ -2,10 +2,14 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Rekenen">
     <meta name="theme-color" content="#1a1a2e">
+    <link rel="manifest" href="rekenen.webmanifest">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='36' fill='%231a1a2e'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='system-ui,sans-serif' font-size='110' font-weight='800' fill='%234a6cf7'%3E%C3%B7%3C/text%3E%3C/svg%3E">
     <title>Rekenen oefenen</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -18,13 +22,20 @@
             overflow: hidden;
             -webkit-user-select: none;
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            overscroll-behavior: none;
+            touch-action: manipulation;
         }
 
         body {
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             flex-direction: column;
-            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            padding-top: env(safe-area-inset-top);
+            padding-right: env(safe-area-inset-right);
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
             transition: background-color 0.3s ease;
         }
 
@@ -35,10 +46,11 @@
             flex: 1;
             display: none;
             flex-direction: column;
-            padding: 20px;
+            padding: 16px;
             width: 100%;
-            max-width: 800px;
+            max-width: 640px;
             margin: 0 auto;
+            min-height: 0;
         }
         .screen.active { display: flex; }
 
@@ -58,9 +70,9 @@
             flex: 1;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            gap: 14px;
             align-content: center;
-            padding-bottom: 20px;
+            padding-bottom: 16px;
         }
         .op-btn {
             background: #2a2a4a;
@@ -71,31 +83,29 @@
             font-weight: 700;
             cursor: pointer;
             transition: transform 0.1s, background 0.2s, border-color 0.2s;
-            min-height: 140px;
+            min-height: 130px;
             display: flex;
             align-items: center;
             justify-content: center;
             line-height: 1;
+            font-family: inherit;
         }
-        .op-btn:hover { background: #3a3a6a; border-color: #5a7cf7; }
-        .op-btn:active { transform: scale(0.97); }
+        .op-btn:active { transform: scale(0.96); background: #3a3a6a; }
         .op-btn.plus   { color: #5acf8f; }
         .op-btn.minus  { color: #f7b74a; }
         .op-btn.times  { color: #f75a8c; }
         .op-btn.divide { color: #5a9cf7; }
 
         /* --- Practice screen --- */
-        #practice {
-            justify-content: space-between;
-        }
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 12px;
+            margin-bottom: 8px;
         }
         .back-btn {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.12);
             color: #fff;
             border: none;
             padding: 10px 16px;
@@ -103,151 +113,131 @@
             font-size: 1rem;
             cursor: pointer;
             font-weight: 600;
+            font-family: inherit;
         }
-        .back-btn:hover { background: rgba(255,255,255,0.2); }
+        .back-btn:active { background: rgba(255,255,255,0.24); }
 
         .score {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
         }
         .score .good { color: #5acf8f; }
         .score .bad  { color: #f75a8c; }
-        body.correct .score .good,
-        body.correct .score .bad,
-        body.wrong   .score .good,
-        body.wrong   .score .bad { color: #fff; }
+        body.correct .score .good, body.correct .score .bad,
+        body.wrong   .score .good, body.wrong   .score .bad { color: #fff; }
 
         .sum-area {
-            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 24px;
-            padding: 20px 0;
+            gap: 10px;
+            padding: 12px 0;
         }
-        .sum {
-            font-size: 7rem;
+        .sum-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.25em;
+            font-size: clamp(3rem, 12vw, 6rem);
             font-weight: 800;
-            text-align: center;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.03em;
             line-height: 1.1;
+            text-align: center;
+        }
+        .answer-display {
+            min-width: 2.5ch;
+            display: inline-block;
+            text-align: left;
+            border-bottom: 4px solid rgba(255,255,255,0.4);
+            min-height: 1.1em;
+            padding: 0 0.1em;
+        }
+        .answer-display.empty::after {
+            content: '\00a0';
         }
         .feedback-text {
-            font-size: 2rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            min-height: 2.2rem;
+            min-height: 1.6rem;
             text-align: center;
+            margin-top: 6px;
         }
 
-        .mic {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            background: #2a2a4a;
-            border: 4px solid #3a3a5c;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-            position: relative;
+        /* Numpad */
+        .pad-wrap {
+            margin-top: auto;
+            padding-top: 8px;
         }
-        .mic svg { width: 56px; height: 56px; fill: #aaa; transition: fill 0.2s; }
-        .mic.listening {
-            background: #4a6cf7;
-            border-color: #6a8cff;
-            animation: pulse 1.2s ease-in-out infinite;
-        }
-        .mic.listening svg { fill: #fff; }
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(74,108,247,0.6); }
-            50%      { box-shadow: 0 0 0 20px rgba(74,108,247,0); }
-        }
-
-        .controls {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            padding-bottom: 12px;
-        }
-        .btn-row {
-            display: flex;
-            gap: 10px;
-        }
-        .ctrl-btn {
-            flex: 1;
+        .repeat-btn {
+            width: 100%;
             background: rgba(255,255,255,0.1);
             color: #fff;
             border: none;
-            padding: 14px;
+            padding: 12px;
             border-radius: 12px;
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
+            margin-bottom: 10px;
+            font-family: inherit;
         }
-        .ctrl-btn:hover { background: rgba(255,255,255,0.2); }
-        .ctrl-btn:active { transform: scale(0.98); }
+        .repeat-btn:active { background: rgba(255,255,255,0.22); }
 
-        .fallback {
-            display: flex;
-            gap: 8px;
+        .numpad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
         }
-        .fallback input {
-            flex: 1;
-            padding: 14px 16px;
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 12px;
-            background: rgba(0,0,0,0.2);
+        .num-btn {
+            background: #2a2a4a;
             color: #fff;
-            font-size: 1.2rem;
-            text-align: center;
-            outline: none;
-        }
-        .fallback input:focus { border-color: #6a8cff; }
-        .fallback button {
-            padding: 14px 20px;
-            background: #4a6cf7;
-            color: #fff;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.05rem;
-            font-weight: 600;
+            border: 2px solid #3a3a5c;
+            border-radius: 16px;
+            font-size: 2.2rem;
+            font-weight: 700;
             cursor: pointer;
+            padding: 14px 0;
+            min-height: 64px;
+            transition: transform 0.08s, background 0.15s;
+            font-family: inherit;
+        }
+        .num-btn:active {
+            transform: scale(0.94);
+            background: #3a3a6a;
+        }
+        .num-btn.clear {
+            background: #5c2a3a;
+            border-color: #7a3a4c;
+            color: #ffb4c4;
+        }
+        .num-btn.clear:active { background: #7c3a4c; }
+        .num-btn.ok {
+            background: #2c5c3a;
+            border-color: #3a7a4c;
+            color: #b4ffc4;
+        }
+        .num-btn.ok:active { background: #3c7c4c; }
+
+        @media (max-width: 380px) {
+            .op-btn { font-size: 4.5rem; min-height: 100px; border-radius: 20px; }
+            .num-btn { font-size: 1.8rem; min-height: 56px; padding: 10px 0; }
+            #home h1 { font-size: 1.5rem; margin: 16px 0 4px; }
+            #home .subtitle { font-size: 1rem; margin-bottom: 20px; }
         }
 
-        .error-banner {
-            background: rgba(231, 76, 60, 0.2);
-            border: 1px solid rgba(231, 76, 60, 0.5);
-            color: #ffdada;
-            padding: 10px 14px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 0.95rem;
-            margin-top: 8px;
-        }
-        .error-banner:empty { display: none; }
-
-        @media (max-width: 480px) {
-            .op-btn { font-size: 4.5rem; min-height: 110px; border-radius: 20px; }
-            .sum { font-size: 4.5rem; }
-            .feedback-text { font-size: 1.5rem; }
-            .mic { width: 90px; height: 90px; }
-            .mic svg { width: 44px; height: 44px; }
-            #home h1 { font-size: 1.6rem; }
-        }
-
-        @media (max-height: 600px) {
-            .sum { font-size: 4rem; }
-            .mic { width: 80px; height: 80px; }
-            .mic svg { width: 40px; height: 40px; }
+        @media (max-height: 640px) {
+            .sum-row { font-size: clamp(2.5rem, 10vw, 4rem); }
+            .num-btn { min-height: 52px; padding: 8px 0; font-size: 1.7rem; }
+            .op-btn { min-height: 90px; font-size: 4rem; }
+            .feedback-text { font-size: 1.15rem; min-height: 1.3rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- Home screen -->
 <section id="home" class="screen active">
     <h1>Rekenen oefenen</h1>
     <p class="subtitle">Kies een bewerking</p>
@@ -259,7 +249,6 @@
     </div>
 </section>
 
-<!-- Practice screen -->
 <section id="practice" class="screen">
     <div class="top-bar">
         <button class="back-btn" id="back-btn">&larr; Terug</button>
@@ -270,25 +259,32 @@
     </div>
 
     <div class="sum-area">
-        <div class="sum" id="sum">&nbsp;</div>
-        <div class="mic" id="mic" aria-label="Microfoon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/>
-            </svg>
+        <div class="sum-row">
+            <span id="sum-a"></span>
+            <span id="sum-op"></span>
+            <span id="sum-b"></span>
+            <span>=</span>
+            <span class="answer-display empty" id="answer"></span>
         </div>
         <div class="feedback-text" id="feedback">&nbsp;</div>
     </div>
 
-    <div class="controls">
-        <div class="btn-row">
-            <button class="ctrl-btn" id="repeat-btn">&#128266; Herhaal som</button>
-            <button class="ctrl-btn" id="listen-btn">&#127908; Luister opnieuw</button>
+    <div class="pad-wrap">
+        <button class="repeat-btn" id="repeat-btn">&#128266; Herhaal som</button>
+        <div class="numpad" id="numpad">
+            <button class="num-btn" data-key="1">1</button>
+            <button class="num-btn" data-key="2">2</button>
+            <button class="num-btn" data-key="3">3</button>
+            <button class="num-btn" data-key="4">4</button>
+            <button class="num-btn" data-key="5">5</button>
+            <button class="num-btn" data-key="6">6</button>
+            <button class="num-btn" data-key="7">7</button>
+            <button class="num-btn" data-key="8">8</button>
+            <button class="num-btn" data-key="9">9</button>
+            <button class="num-btn clear" data-key="C">C</button>
+            <button class="num-btn" data-key="0">0</button>
+            <button class="num-btn ok" data-key="OK">OK</button>
         </div>
-        <form class="fallback" id="fallback-form">
-            <input type="number" id="fallback-input" placeholder="Typ je antwoord..." inputmode="numeric" autocomplete="off">
-            <button type="submit">OK</button>
-        </form>
-        <div class="error-banner" id="error-banner"></div>
     </div>
 </section>
 
@@ -296,7 +292,7 @@
 (function () {
     'use strict';
 
-    // ---------- Dutch number helpers ----------
+    // ---------- Dutch number words (for spoken sums) ----------
     const UNITS = ['nul','een','twee','drie','vier','vijf','zes','zeven','acht','negen'];
     const TEENS = ['tien','elf','twaalf','dertien','veertien','vijftien','zestien','zeventien','achttien','negentien'];
     const TENS  = ['','','twintig','dertig','veertig','vijftig','zestig','zeventig','tachtig','negentig'];
@@ -314,75 +310,41 @@
             const joiner = (unitWord === 'twee' || unitWord === 'drie') ? 'ën' : 'en';
             return unitWord + joiner + TENS[t];
         }
-        // Fallback for >100 (shouldn't happen with our generators, but safe)
         return String(n);
     }
 
-    // Build reverse dictionary for parsing spoken input (0–100)
-    const DUTCH_TO_NUM = {};
-    (function buildDict() {
-        for (let i = 0; i <= 100; i++) {
-            const word = numberToDutch(i);
-            DUTCH_TO_NUM[word] = i;
-            DUTCH_TO_NUM[word.replace(/ë/g, 'e')] = i; // without diaeresis
-        }
-        // Common homophones / alternate spellings
-        DUTCH_TO_NUM['één'] = 1;
-        DUTCH_TO_NUM['eén'] = 1;
-    })();
-
-    function parseAnswer(text) {
-        if (!text) return null;
-        text = text.toLowerCase().trim();
-
-        // Direct digit match
-        const digitMatch = text.match(/-?\d+/);
-        if (digitMatch) return parseInt(digitMatch[0], 10);
-
-        // Strip punctuation, split
-        const cleaned = text.replace(/[.,!?;:'"]/g, ' ').replace(/\s+/g, ' ').trim();
-
-        // Try whole phrase
-        if (DUTCH_TO_NUM[cleaned] !== undefined) return DUTCH_TO_NUM[cleaned];
-
-        // Try each word
-        const words = cleaned.split(' ');
-        for (const w of words) {
-            if (DUTCH_TO_NUM[w] !== undefined) return DUTCH_TO_NUM[w];
-        }
-        return null;
-    }
-
-    // ---------- State ----------
-    const OP_SYMBOLS  = { '+': '+', '-': '−', '*': '×', '/': ':' };
-    const OP_SPOKEN   = { '+': 'plus', '-': 'min', '*': 'keer', '/': 'gedeeld door' };
+    const OP_SYMBOLS = { '+': '+', '-': '−', '*': '×', '/': ':' };
+    const OP_SPOKEN  = { '+': 'plus', '-': 'min', '*': 'keer', '/': 'gedeeld door' };
 
     let currentOp = null;
-    let currentSum = null; // { a, b, op, answer }
+    let currentSum = null;
     let score = { good: 0, bad: 0 };
-    let recognition = null;
-    let recognitionAvailable = false;
-    let recognizing = false;
-    let awaitingAnswer = false;
+    let answerInput = '';
+    let locked = false;
 
-    // ---------- DOM ----------
     const homeScreen     = document.getElementById('home');
     const practiceScreen = document.getElementById('practice');
-    const sumEl          = document.getElementById('sum');
+    const sumAEl         = document.getElementById('sum-a');
+    const sumOpEl        = document.getElementById('sum-op');
+    const sumBEl         = document.getElementById('sum-b');
+    const answerEl       = document.getElementById('answer');
     const feedbackEl     = document.getElementById('feedback');
-    const micEl          = document.getElementById('mic');
     const scoreGoodEl    = document.getElementById('score-good');
     const scoreBadEl     = document.getElementById('score-bad');
     const backBtn        = document.getElementById('back-btn');
     const repeatBtn      = document.getElementById('repeat-btn');
-    const listenBtn      = document.getElementById('listen-btn');
-    const fallbackForm   = document.getElementById('fallback-form');
-    const fallbackInput  = document.getElementById('fallback-input');
-    const errorBanner    = document.getElementById('error-banner');
+    const numpadEl       = document.getElementById('numpad');
+
+    // ---------- Fullscreen / app feel ----------
+    function tryFullscreen() {
+        const el = document.documentElement;
+        const req = el.requestFullscreen || el.webkitRequestFullscreen;
+        if (req) { try { req.call(el); } catch (e) {} }
+    }
 
     // ---------- Screens ----------
     function showHome() {
-        stopAll();
+        stopSpeech();
         clearBodyColor();
         practiceScreen.classList.remove('active');
         homeScreen.classList.add('active');
@@ -433,12 +395,14 @@
     function nextSum() {
         clearBodyColor();
         feedbackEl.textContent = '\u00a0';
-        fallbackInput.value = '';
+        answerInput = '';
+        renderAnswer();
+        locked = false;
         currentSum = makeSum(currentOp);
-        sumEl.textContent = `${currentSum.a} ${OP_SYMBOLS[currentOp]} ${currentSum.b} = ?`;
-        speakSum(currentSum, () => {
-            startListening();
-        });
+        sumAEl.textContent  = currentSum.a;
+        sumOpEl.textContent = OP_SYMBOLS[currentOp];
+        sumBEl.textContent  = currentSum.b;
+        speakSum(currentSum);
     }
 
     // ---------- Speech synthesis ----------
@@ -446,13 +410,12 @@
     let dutchVoice = null;
 
     function pickDutchVoice() {
-        if (!synth) return null;
+        if (!synth) return;
         const voices = synth.getVoices();
         dutchVoice =
             voices.find(v => v.lang === 'nl-NL') ||
             voices.find(v => /^nl/i.test(v.lang)) ||
             null;
-        return dutchVoice;
     }
     if (synth) {
         pickDutchVoice();
@@ -477,109 +440,52 @@
     function speakSum(sum, onEnd) {
         const aWord = numberToDutch(sum.a);
         const bWord = numberToDutch(sum.b);
-        const opWord = OP_SPOKEN[sum.op];
-        speak(`${aWord} ${opWord} ${bWord}`, onEnd);
+        speak(`${aWord} ${OP_SPOKEN[sum.op]} ${bWord}`, onEnd);
     }
 
-    // ---------- Speech recognition ----------
-    function initRecognition() {
-        const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (!SR) {
-            recognitionAvailable = false;
-            showError('Spraakherkenning niet beschikbaar in deze browser. Typ je antwoord hieronder.');
-            return;
-        }
-        recognitionAvailable = true;
-        recognition = new SR();
-        recognition.lang = 'nl-NL';
-        recognition.continuous = false;
-        recognition.interimResults = false;
-        recognition.maxAlternatives = 5;
-
-        recognition.onstart = () => {
-            recognizing = true;
-            micEl.classList.add('listening');
-        };
-        recognition.onend = () => {
-            recognizing = false;
-            micEl.classList.remove('listening');
-        };
-        recognition.onerror = (ev) => {
-            recognizing = false;
-            micEl.classList.remove('listening');
-            if (ev.error === 'not-allowed' || ev.error === 'service-not-allowed') {
-                showError('Microfoon geen toestemming. Gebruik het invoerveld.');
-            } else if (ev.error === 'no-speech') {
-                // Silently allow the user to try again via buttons or input
-            } else if (ev.error === 'audio-capture') {
-                showError('Geen microfoon gevonden. Gebruik het invoerveld.');
-            }
-        };
-        recognition.onresult = (ev) => {
-            if (!awaitingAnswer) return;
-            let parsed = null;
-            for (let i = 0; i < ev.results[0].length && parsed === null; i++) {
-                const transcript = ev.results[0][i].transcript;
-                parsed = parseAnswer(transcript);
-            }
-            if (parsed === null) {
-                // Couldn't parse — let the user try again
-                feedbackEl.textContent = 'Niet verstaan, probeer opnieuw';
-                setTimeout(() => {
-                    if (awaitingAnswer) {
-                        feedbackEl.textContent = '\u00a0';
-                        startListening();
-                    }
-                }, 900);
-                return;
-            }
-            handleAnswer(parsed);
-        };
-    }
-
-    function startListening() {
-        awaitingAnswer = true;
-        if (!recognitionAvailable) {
-            fallbackInput.focus();
-            return;
-        }
-        if (recognizing) return;
-        try {
-            recognition.start();
-        } catch (e) {
-            // Already started or transient error — try again shortly
-            setTimeout(() => {
-                try { recognition.start(); } catch (_) {}
-            }, 200);
-        }
-    }
-
-    function stopListening() {
-        awaitingAnswer = false;
-        if (recognition && recognizing) {
-            try { recognition.stop(); } catch (e) {}
-        }
-        micEl.classList.remove('listening');
-    }
-
-    function stopAll() {
-        awaitingAnswer = false;
-        stopListening();
+    function stopSpeech() {
         if (synth) { try { synth.cancel(); } catch (e) {} }
     }
 
-    // ---------- Answer handling ----------
-    function handleAnswer(given) {
-        awaitingAnswer = false;
-        stopListening();
+    // ---------- Input handling ----------
+    function renderAnswer() {
+        if (answerInput === '') {
+            answerEl.textContent = '';
+            answerEl.classList.add('empty');
+        } else {
+            answerEl.textContent = answerInput;
+            answerEl.classList.remove('empty');
+        }
+    }
+
+    function handleKey(key) {
+        if (locked) return;
+        if (key === 'C') {
+            answerInput = '';
+            renderAnswer();
+            return;
+        }
+        if (key === 'OK') {
+            if (answerInput === '') return;
+            submitAnswer(parseInt(answerInput, 10));
+            return;
+        }
+        if (answerInput.length >= 3) return;
+        if (answerInput === '' && key === '0') return;
+        answerInput += key;
+        renderAnswer();
+    }
+
+    function submitAnswer(given) {
+        locked = true;
         const correct = given === currentSum.answer;
         if (correct) {
             score.good++;
             updateScore();
             document.body.classList.add('correct');
             feedbackEl.textContent = 'Goed zo!';
-            speak('Goed zo!', () => {});
-            setTimeout(() => { nextSum(); }, 1300);
+            speak('Goed zo!');
+            setTimeout(nextSum, 1300);
         } else {
             score.bad++;
             updateScore();
@@ -587,12 +493,11 @@
             const answerWord = numberToDutch(currentSum.answer);
             feedbackEl.textContent = `Het juiste antwoord is ${currentSum.answer}`;
             speak(`Het juiste antwoord is ${answerWord}`, () => {
-                setTimeout(() => { nextSum(); }, 600);
+                setTimeout(nextSum, 500);
             });
-            // Fallback timeout in case TTS never finishes
             setTimeout(() => {
                 if (document.body.classList.contains('wrong')) nextSum();
-            }, 4000);
+            }, 4500);
         }
     }
 
@@ -605,15 +510,11 @@
         document.body.classList.remove('correct', 'wrong');
     }
 
-    function showError(msg) {
-        errorBanner.textContent = msg;
-    }
-
     // ---------- Event wiring ----------
     document.querySelectorAll('.op-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-            // Tap initialises audio context on iOS
-            if (synth) { try { synth.cancel(); } catch (e) {} }
+            tryFullscreen();
+            stopSpeech();
             showPractice(btn.dataset.op);
         });
     });
@@ -622,31 +523,32 @@
 
     repeatBtn.addEventListener('click', () => {
         if (!currentSum) return;
-        stopListening();
-        speakSum(currentSum, () => startListening());
+        speakSum(currentSum);
     });
 
-    listenBtn.addEventListener('click', () => {
-        if (!currentSum) return;
-        startListening();
+    numpadEl.addEventListener('click', (e) => {
+        const btn = e.target.closest('.num-btn');
+        if (!btn) return;
+        handleKey(btn.dataset.key);
     });
 
-    fallbackForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const val = fallbackInput.value.trim();
-        if (val === '') return;
-        const n = parseInt(val, 10);
-        if (isNaN(n)) return;
-        fallbackInput.value = '';
-        handleAnswer(n);
+    document.addEventListener('keydown', (e) => {
+        if (!practiceScreen.classList.contains('active')) return;
+        if (e.key >= '0' && e.key <= '9') handleKey(e.key);
+        else if (e.key === 'Enter') handleKey('OK');
+        else if (e.key === 'Backspace' || e.key === 'Escape' || e.key === 'Delete') handleKey('C');
     });
 
-    // Initialise
-    initRecognition();
+    document.addEventListener('gesturestart', (e) => e.preventDefault());
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', (e) => {
+        const now = Date.now();
+        if (now - lastTouchEnd <= 300) e.preventDefault();
+        lastTouchEnd = now;
+    }, { passive: false });
 
-    // Safety: stop speech/recognition if tab is hidden
     document.addEventListener('visibilitychange', () => {
-        if (document.hidden) stopAll();
+        if (document.hidden) stopSpeech();
     });
 })();
 </script>
