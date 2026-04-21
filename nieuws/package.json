@@ -1,0 +1,12 @@
+{
+  "name": "nieuws",
+  "version": "1.0.0",
+  "description": "Nieuws-PWA die Nu.nl RSS-feeds toont via een kleine Node-proxy.",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
