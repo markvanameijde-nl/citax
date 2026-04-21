@@ -52,12 +52,37 @@ PORT=8080 npm start
   (`https://www.nu.nl/rss/Algemeen`). Alleen whitelisted namen zijn
   toegestaan; de proxy is dus geen open relay.
 
-## Installeren als PWA
+## Publiek draaien via Cloudflare Worker
 
-Omdat de app een Node-backend nodig heeft voor de RSS-proxy, is de publieke
-GitHub Pages-variant van citax **niet** direct bruikbaar voor de nieuws-app —
-je hebt een draaiende proxy nodig (bv. lokaal via `npm start`, of gehost op
-een eigen server / serverless function).
+GitHub Pages serveert alleen statische bestanden en kan de Node-proxy niet
+draaien. Om de app publiek bruikbaar te maken op
+<https://markvanameijde-nl.github.io/citax/nieuws/> staat er een kant-en-klare
+Cloudflare Worker in [`worker/`](./worker/) die exact dezelfde endpoints
+aanbiedt als `server.js`.
+
+Eenmalige deploy (gratis Cloudflare-account volstaat):
+
+```bash
+npm install -g wrangler
+cd nieuws/worker
+wrangler login
+wrangler deploy
+```
+
+Wrangler geeft je een URL terug, bijvoorbeeld
+`https://citax-nieuws.<jij>.workers.dev`. Zet die in `nieuws/app.js`:
+
+```js
+const WORKER_URL = "https://citax-nieuws.<jij>.workers.dev";
+```
+
+Commit + push naar `main`. De frontend op GitHub Pages praat vanaf dan met de
+Worker. Lokaal (`npm start`) blijft via de Node-proxy werken — de frontend
+detecteert `localhost` en negeert `WORKER_URL` in dat geval.
+
+Zie [`worker/README.md`](./worker/README.md) voor alle details.
+
+## Installeren als PWA
 
 ### Desktop (Chrome, Edge)
 
@@ -89,7 +114,7 @@ een eigen server / serverless function).
 
 ## Bestanden
 
-- `server.js` — Node-proxy + statische file server.
+- `server.js` — Node-proxy + statische file server (lokaal).
 - `package.json` — `npm start`-script.
 - `index.html` — UI-skelet.
 - `styles.css` — donkere, hoog-contrast opmaak.
@@ -97,3 +122,4 @@ een eigen server / serverless function).
 - `manifest.json` — PWA-manifest.
 - `sw.js` — service worker (offline cache van de app-shell).
 - `icon.svg`, `icon-192.svg`, `icon-512.svg` — app-iconen.
+- `worker/` — Cloudflare Worker-variant van de proxy voor publieke hosting.

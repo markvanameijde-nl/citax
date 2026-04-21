@@ -1,5 +1,13 @@
-const FEEDS_ENDPOINT = "/api/feeds";
-const RSS_ENDPOINT = "/api/rss";
+// Publieke RSS-proxy. Leeg laten voor lokaal draaien (npm start serveert
+// zelf op /api). Vul een Cloudflare Worker-URL in (zonder slash aan het
+// eind) om de app publiek te laten werken vanaf bv. GitHub Pages.
+// Zie nieuws/worker/README.md voor het deployen.
+const WORKER_URL = "";
+
+const isLocalHost = /^(localhost|127\.0\.0\.1|\[::1\]|::1)$/.test(location.hostname);
+const API_BASE = isLocalHost || !WORKER_URL ? "" : WORKER_URL;
+const FEEDS_ENDPOINT = `${API_BASE}/api/feeds`;
+const RSS_ENDPOINT = `${API_BASE}/api/rss`;
 const FALLBACK_FEEDS = ["Algemeen", "Economie", "Sport", "Tech"];
 
 const STORAGE_READ = "nieuws.read";
