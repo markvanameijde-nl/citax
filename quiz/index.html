@@ -43,6 +43,23 @@
       </div>
     </header>
 
+    <div class="rate-control">
+      <label class="rate-label" for="rate">
+        Spreeksnelheid
+        <span class="rate-value" id="rate-value">1.0&times;</span>
+      </label>
+      <input
+        id="rate"
+        class="rate-slider"
+        type="range"
+        min="0.7"
+        max="1.4"
+        step="0.05"
+        value="1.0"
+        aria-label="Spreeksnelheid"
+      />
+    </div>
+
     <section class="question-card" id="question-card" aria-live="polite">
       <div class="category-badge" id="category-badge">—</div>
       <h1 class="question-text" id="question-text">Bezig met laden…</h1>
