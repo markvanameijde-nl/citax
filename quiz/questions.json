@@ -1,0 +1,329 @@
+{
+  "version": 1,
+  "questions": [
+    {
+      "category": "geschiedenis",
+      "question": "In welk jaar eindigde de Tweede Wereldoorlog in Europa?",
+      "options": ["1943", "1944", "1945", "1946"],
+      "answer": 2
+    },
+    {
+      "category": "geschiedenis",
+      "question": "Wie was de eerste president van de Verenigde Staten?",
+      "options": ["Thomas Jefferson", "George Washington", "Abraham Lincoln", "John Adams"],
+      "answer": 1
+    },
+    {
+      "category": "geschiedenis",
+      "question": "In welk jaar viel de Berlijnse Muur?",
+      "options": ["1987", "1989", "1991", "1993"],
+      "answer": 1
+    },
+    {
+      "category": "geschiedenis",
+      "question": "Welke Nederlandse schilder schilderde 'De Nachtwacht'?",
+      "options": ["Vincent van Gogh", "Johannes Vermeer", "Rembrandt van Rijn", "Piet Mondriaan"],
+      "answer": 2
+    },
+    {
+      "category": "geschiedenis",
+      "question": "Hoe heette de eerste mens op de maan?",
+      "options": ["Buzz Aldrin", "Yuri Gagarin", "Neil Armstrong", "Michael Collins"],
+      "answer": 2
+    },
+    {
+      "category": "geschiedenis",
+      "question": "In welk jaar werd Nederland bevrijd van de Duitse bezetting?",
+      "options": ["1943", "1944", "1945", "1946"],
+      "answer": 2
+    },
+    {
+      "category": "geschiedenis",
+      "question": "Welke Romeinse keizer stak volgens de legende Rome in brand?",
+      "options": ["Caesar", "Nero", "Augustus", "Caligula"],
+      "answer": 1
+    },
+    {
+      "category": "geschiedenis",
+      "question": "In welk jaar werd de Verenigde Oost-Indische Compagnie (VOC) opgericht?",
+      "options": ["1602", "1648", "1700", "1581"],
+      "answer": 0
+    },
+    {
+      "category": "geschiedenis",
+      "question": "Wie schreef het dagboek van Anne Frank?",
+      "options": ["Margot Frank", "Otto Frank", "Anne Frank", "Miep Gies"],
+      "answer": 2
+    },
+    {
+      "category": "wetenschap",
+      "question": "Wat is het chemische symbool voor goud?",
+      "options": ["Go", "Gd", "Au", "Ag"],
+      "answer": 2
+    },
+    {
+      "category": "wetenschap",
+      "question": "Welke planeet staat het dichtst bij de zon?",
+      "options": ["Venus", "Mercurius", "Mars", "Aarde"],
+      "answer": 1
+    },
+    {
+      "category": "wetenschap",
+      "question": "Hoeveel botten heeft een volwassen mens ongeveer?",
+      "options": ["106", "206", "306", "406"],
+      "answer": 1
+    },
+    {
+      "category": "wetenschap",
+      "question": "Wat is de snelheid van het licht in vacuüm (afgerond)?",
+      "options": ["150.000 km/s", "300.000 km/s", "500.000 km/s", "1.000.000 km/s"],
+      "answer": 1
+    },
+    {
+      "category": "wetenschap",
+      "question": "Welk gas ademen planten in voor fotosynthese?",
+      "options": ["Zuurstof", "Stikstof", "Koolstofdioxide", "Waterstof"],
+      "answer": 2
+    },
+    {
+      "category": "wetenschap",
+      "question": "Wie formuleerde de algemene relativiteitstheorie?",
+      "options": ["Isaac Newton", "Nikola Tesla", "Albert Einstein", "Stephen Hawking"],
+      "answer": 2
+    },
+    {
+      "category": "wetenschap",
+      "question": "Wat is het grootste orgaan van het menselijk lichaam?",
+      "options": ["Lever", "Hersenen", "Huid", "Longen"],
+      "answer": 2
+    },
+    {
+      "category": "wetenschap",
+      "question": "Welke bloedgroep is de universele donor voor rode bloedcellen?",
+      "options": ["AB+", "O-", "A+", "B-"],
+      "answer": 1
+    },
+    {
+      "category": "wetenschap",
+      "question": "Hoeveel chromosomen heeft een normale menselijke cel?",
+      "options": ["23", "44", "46", "48"],
+      "answer": 2
+    },
+    {
+      "category": "film",
+      "question": "Wie regisseerde de film 'Jurassic Park' (1993)?",
+      "options": ["George Lucas", "Steven Spielberg", "James Cameron", "Ridley Scott"],
+      "answer": 1
+    },
+    {
+      "category": "film",
+      "question": "Welke acteur speelt Jack Sparrow in 'Pirates of the Caribbean'?",
+      "options": ["Orlando Bloom", "Johnny Depp", "Brad Pitt", "Leonardo DiCaprio"],
+      "answer": 1
+    },
+    {
+      "category": "film",
+      "question": "In welke film hoor je de zin 'May the Force be with you'?",
+      "options": ["Star Trek", "Star Wars", "The Matrix", "Avatar"],
+      "answer": 1
+    },
+    {
+      "category": "film",
+      "question": "Welke animatiestudio maakte 'Toy Story'?",
+      "options": ["DreamWorks", "Pixar", "Disney", "Studio Ghibli"],
+      "answer": 1
+    },
+    {
+      "category": "film",
+      "question": "Wie speelt Neo in de film 'The Matrix'?",
+      "options": ["Tom Cruise", "Keanu Reeves", "Will Smith", "Brad Pitt"],
+      "answer": 1
+    },
+    {
+      "category": "film",
+      "question": "Welke film won de Oscar voor Beste Film in 1994?",
+      "options": ["Forrest Gump", "Pulp Fiction", "The Shawshank Redemption", "The Lion King"],
+      "answer": 0
+    },
+    {
+      "category": "film",
+      "question": "Welke Nederlandse film won een Oscar voor Beste Buitenlandse Film in 1995?",
+      "options": ["Karakter", "Antonia", "De Aanslag", "Turks Fruit"],
+      "answer": 1
+    },
+    {
+      "category": "film",
+      "question": "Wie regisseerde 'The Godfather'?",
+      "options": ["Martin Scorsese", "Francis Ford Coppola", "Stanley Kubrick", "Alfred Hitchcock"],
+      "answer": 1
+    },
+    {
+      "category": "sport",
+      "question": "Hoeveel spelers staan er per team op het veld bij voetbal?",
+      "options": ["9", "10", "11", "12"],
+      "answer": 2
+    },
+    {
+      "category": "sport",
+      "question": "In welk land werden de Olympische Spelen van 2008 gehouden?",
+      "options": ["Griekenland", "China", "Verenigd Koninkrijk", "Brazilië"],
+      "answer": 1
+    },
+    {
+      "category": "sport",
+      "question": "Welke sport speelt Max Verstappen?",
+      "options": ["Schaatsen", "Wielrennen", "Formule 1", "Tennis"],
+      "answer": 2
+    },
+    {
+      "category": "sport",
+      "question": "Hoeveel ringen telt het olympisch symbool?",
+      "options": ["4", "5", "6", "7"],
+      "answer": 1
+    },
+    {
+      "category": "sport",
+      "question": "In welk jaar won Nederland het EK voetbal?",
+      "options": ["1974", "1988", "1998", "2010"],
+      "answer": 1
+    },
+    {
+      "category": "sport",
+      "question": "Bij welke sport hoort de term 'love'?",
+      "options": ["Golf", "Tennis", "Badminton", "Voetbal"],
+      "answer": 1
+    },
+    {
+      "category": "sport",
+      "question": "Hoeveel spelers vormen een basketbalteam op het veld?",
+      "options": ["4", "5", "6", "7"],
+      "answer": 1
+    },
+    {
+      "category": "sport",
+      "question": "Welke Nederlandse schaatser won goud op 5 km in Pyeongchang 2018?",
+      "options": ["Sven Kramer", "Patrick Roest", "Ireen Wüst", "Kjeld Nuis"],
+      "answer": 0
+    },
+    {
+      "category": "geografie",
+      "question": "Wat is de hoofdstad van Australië?",
+      "options": ["Sydney", "Melbourne", "Canberra", "Brisbane"],
+      "answer": 2
+    },
+    {
+      "category": "geografie",
+      "question": "Welke rivier stroomt door Parijs?",
+      "options": ["Rijn", "Donau", "Seine", "Theems"],
+      "answer": 2
+    },
+    {
+      "category": "geografie",
+      "question": "Wat is het grootste land ter wereld qua oppervlakte?",
+      "options": ["China", "Verenigde Staten", "Canada", "Rusland"],
+      "answer": 3
+    },
+    {
+      "category": "geografie",
+      "question": "Op welk continent ligt Egypte?",
+      "options": ["Azië", "Afrika", "Europa", "Oceanië"],
+      "answer": 1
+    },
+    {
+      "category": "geografie",
+      "question": "Wat is de hoogste berg ter wereld?",
+      "options": ["K2", "Mont Blanc", "Mount Everest", "Kilimanjaro"],
+      "answer": 2
+    },
+    {
+      "category": "geografie",
+      "question": "Welke oceaan is de grootste?",
+      "options": ["Atlantische Oceaan", "Indische Oceaan", "Stille Oceaan", "Noordelijke IJszee"],
+      "answer": 2
+    },
+    {
+      "category": "geografie",
+      "question": "Wat is de hoofdstad van Canada?",
+      "options": ["Toronto", "Montreal", "Vancouver", "Ottawa"],
+      "answer": 3
+    },
+    {
+      "category": "geografie",
+      "question": "Welke provincie is de hoofdstad van Nederland?",
+      "options": ["Zuid-Holland", "Noord-Holland", "Utrecht", "Flevoland"],
+      "answer": 1
+    },
+    {
+      "category": "geografie",
+      "question": "Hoeveel provincies telt Nederland?",
+      "options": ["10", "11", "12", "13"],
+      "answer": 2
+    },
+    {
+      "category": "geografie",
+      "question": "Welk land heeft de meeste inwoners ter wereld?",
+      "options": ["China", "India", "Verenigde Staten", "Indonesië"],
+      "answer": 1
+    },
+    {
+      "category": "geografie",
+      "question": "Door welke stad stroomt de Theems?",
+      "options": ["Manchester", "Liverpool", "Londen", "Edinburgh"],
+      "answer": 2
+    },
+    {
+      "category": "muziek",
+      "question": "Welke band zong 'Bohemian Rhapsody'?",
+      "options": ["The Beatles", "Queen", "Led Zeppelin", "The Rolling Stones"],
+      "answer": 1
+    },
+    {
+      "category": "muziek",
+      "question": "Hoeveel snaren heeft een standaard gitaar?",
+      "options": ["4", "5", "6", "7"],
+      "answer": 2
+    },
+    {
+      "category": "muziek",
+      "question": "Welke Nederlandse DJ maakte 'Animals'?",
+      "options": ["Tiësto", "Hardwell", "Martin Garrix", "Afrojack"],
+      "answer": 2
+    },
+    {
+      "category": "muziek",
+      "question": "Wie componeerde 'De Vier Jaargetijden'?",
+      "options": ["Bach", "Mozart", "Vivaldi", "Beethoven"],
+      "answer": 2
+    },
+    {
+      "category": "muziek",
+      "question": "Uit welke stad komt The Beatles?",
+      "options": ["Londen", "Manchester", "Liverpool", "Birmingham"],
+      "answer": 2
+    },
+    {
+      "category": "muziek",
+      "question": "Wie zong 'Like a Rolling Stone'?",
+      "options": ["Elvis Presley", "Bob Dylan", "Bruce Springsteen", "Neil Young"],
+      "answer": 1
+    },
+    {
+      "category": "muziek",
+      "question": "Welk instrument bespeelde Louis Armstrong vooral?",
+      "options": ["Saxofoon", "Trompet", "Piano", "Gitaar"],
+      "answer": 1
+    },
+    {
+      "category": "muziek",
+      "question": "In welk jaar overleed Michael Jackson?",
+      "options": ["2007", "2009", "2011", "2013"],
+      "answer": 1
+    },
+    {
+      "category": "muziek",
+      "question": "Welke Nederlandse zangeres won het Eurovisie Songfestival in 2019?",
+      "options": ["Anouk", "Edsilia Rombley", "Trijntje Oosterhuis", "Duncan Laurence"],
+      "answer": 3
+    }
+  ]
+}
