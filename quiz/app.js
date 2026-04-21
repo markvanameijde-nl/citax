@@ -14,13 +14,16 @@
 /* ---------- Constants ---------- */
 
 const STORAGE_KEY = "citax-quiz-score-v1";
+const RATE_STORAGE_KEY = "citax-quiz-rate-v1";
 const OPTION_LETTERS = ["A", "B", "C", "D"];
 
-// Enthusiastic quizmaster prosody. Values chosen to sound lively
-// without becoming cartoonish on most built-in Dutch voices.
+// Enthusiastic quizmaster prosody. Pitch stays fixed; rate is
+// user-configurable via the slider (persisted in localStorage).
 const VOICE_LANG = "nl-NL";
-const VOICE_RATE = 1.1;
 const VOICE_PITCH = 1.2;
+const VOICE_RATE_DEFAULT = 1.0;
+const VOICE_RATE_MIN = 0.7;
+const VOICE_RATE_MAX = 1.4;
 
 /* ---------- DOM refs ---------- */
 
@@ -35,6 +38,8 @@ const els = {
   btnReset: document.getElementById("btn-reset"),
   flash: document.getElementById("flash"),
   questionCard: document.getElementById("question-card"),
+  rate: document.getElementById("rate"),
+  rateValue: document.getElementById("rate-value"),
 };
 
 /* ---------- State ---------- */
@@ -44,6 +49,7 @@ const state = {
   current: null,
   answered: false,
   score: loadScore(),
+  rate: loadRate(),
 };
 
 /* ---------- Score persistence ---------- */
@@ -77,6 +83,36 @@ function renderScore() {
   els.scoreTotal.textContent = String(correct + wrong);
 }
 
+/* ---------- Speech rate persistence ---------- */
+
+function clampRate(n) {
+  if (!Number.isFinite(n)) return VOICE_RATE_DEFAULT;
+  return Math.min(VOICE_RATE_MAX, Math.max(VOICE_RATE_MIN, n));
+}
+
+function loadRate() {
+  try {
+    const raw = localStorage.getItem(RATE_STORAGE_KEY);
+    if (raw == null) return VOICE_RATE_DEFAULT;
+    return clampRate(parseFloat(raw));
+  } catch {
+    return VOICE_RATE_DEFAULT;
+  }
+}
+
+function saveRate() {
+  try {
+    localStorage.setItem(RATE_STORAGE_KEY, String(state.rate));
+  } catch {
+    /* ignore */
+  }
+}
+
+function renderRate() {
+  els.rate.value = String(state.rate);
+  els.rateValue.textContent = `${state.rate.toFixed(2).replace(/0$/, "")}×`;
+}
+
 /* ---------- Speech ---------- */
 
 let cachedVoice = null;
@@ -104,7 +140,7 @@ function speak(text, { interrupt = true } = {}) {
 
   const u = new SpeechSynthesisUtterance(text);
   u.lang = VOICE_LANG;
-  u.rate = VOICE_RATE;
+  u.rate = state.rate;
   u.pitch = VOICE_PITCH;
 
   if (!cachedVoice) cachedVoice = pickDutchVoice();
@@ -268,6 +304,17 @@ function bindControls() {
     if (confirm("Score resetten?")) resetScore();
   });
 
+  // Live-update speech rate while the user drags the slider.
+  els.rate.addEventListener("input", () => {
+    state.rate = clampRate(parseFloat(els.rate.value));
+    renderRate();
+  });
+  // Persist + demo the new rate once the user lets go.
+  els.rate.addEventListener("change", () => {
+    saveRate();
+    speak("Zo klinkt het.");
+  });
+
   // Stop speech when the user leaves/hides the page.
   document.addEventListener("visibilitychange", () => {
     if (document.hidden && "speechSynthesis" in window) {
@@ -278,6 +325,7 @@ function bindControls() {
 
 async function init() {
   renderScore();
+  renderRate();
   bindControls();
   registerServiceWorker();
 

@@ -11,7 +11,8 @@ Live: https://markvanameijde-nl.github.io/citax/quiz/
   sport, geografie, muziek (54 vragen in `questions.json`).
 - Vier meerkeuze-opties (A/B/C/D), één correct.
 - Web Speech API leest vraag én antwoordopties voor met een enthousiaste
-  Nederlandse stem (hogere rate/pitch).
+  Nederlandse stem. Spreeksnelheid instelbaar via een slider (0,7×–1,4×),
+  persistent in `localStorage`.
 - Groene flash + "Helemaal goed!" bij correct, rode flash + juiste antwoord
   gesproken bij fout.
 - Scorebord (goed / fout / totaal) persistent in `localStorage`.
