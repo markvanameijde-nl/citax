@@ -109,7 +109,13 @@ function saveRate() {
 }
 
 function renderRate() {
+  // Sync both the slider and the numeric display to state.rate.
+  // Use this on initial load / when state changes outside the slider.
   els.rate.value = String(state.rate);
+  renderRateLabel();
+}
+
+function renderRateLabel() {
   els.rateValue.textContent = `${state.rate.toFixed(2).replace(/0$/, "")}×`;
 }
 
@@ -290,6 +296,18 @@ async function loadQuestions() {
 
 function registerServiceWorker() {
   if (!("serviceWorker" in navigator)) return;
+
+  // When a new SW takes control (e.g. after a deploy), reload once so the
+  // page starts running the freshly-cached JS/CSS instead of the stale copy
+  // the previous SW was still serving. Guarded so we only reload a single
+  // time per session.
+  let reloaded = false;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (reloaded) return;
+    reloaded = true;
+    window.location.reload();
+  });
+
   // Register once the page is fully loaded so it doesn't block initial render.
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("sw.js").catch(() => {
@@ -305,9 +323,11 @@ function bindControls() {
   });
 
   // Live-update speech rate while the user drags the slider.
+  // We deliberately do NOT write back to els.rate.value here — doing so
+  // can make the thumb jump during drag on some mobile browsers.
   els.rate.addEventListener("input", () => {
     state.rate = clampRate(parseFloat(els.rate.value));
-    renderRate();
+    renderRateLabel();
   });
   // Persist + demo the new rate once the user lets go.
   els.rate.addEventListener("change", () => {

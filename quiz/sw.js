@@ -1,10 +1,12 @@
 /* -------------------------------------------------------------
-   Service worker — offline-first for static assets and questions.
-   Bump CACHE_VERSION when any cached file changes so clients pick
-   up the new copy.
+   Service worker — offline-capable with fresh-by-default updates.
+   - navigate: network-first (falls back to cached shell offline)
+   - other GETs: stale-while-revalidate (serve cache if present,
+     refresh in the background so the next load has the new asset)
+   Bump CACHE_VERSION when any cached file changes.
    ------------------------------------------------------------- */
 
-const CACHE_VERSION = "v2";
+const CACHE_VERSION = "v3";
 const CACHE_NAME = `citax-quiz-${CACHE_VERSION}`;
 
 const PRECACHE_URLS = [
@@ -60,18 +62,19 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Cache-first for everything else (CSS/JS/JSON/icons).
+  // Stale-while-revalidate for everything else (CSS/JS/JSON/icons):
+  // serve the cached copy immediately if we have one, but always try to
+  // refresh it in the background so the next visit picks up any changes.
   event.respondWith(
-    caches.match(req).then((cached) => {
-      if (cached) return cached;
-      return fetch(req).then((res) => {
-        // Only cache successful basic responses.
-        if (res.ok && res.type === "basic") {
-          const copy = res.clone();
-          caches.open(CACHE_NAME).then((c) => c.put(req, copy));
-        }
-        return res;
-      });
+    caches.open(CACHE_NAME).then(async (cache) => {
+      const cached = await cache.match(req);
+      const network = fetch(req)
+        .then((res) => {
+          if (res.ok && res.type === "basic") cache.put(req, res.clone());
+          return res;
+        })
+        .catch(() => null);
+      return cached || (await network) || Response.error();
     })
   );
 });
