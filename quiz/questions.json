@@ -4,326 +4,2763 @@
     {
       "category": "geschiedenis",
       "question": "In welk jaar eindigde de Tweede Wereldoorlog in Europa?",
-      "options": ["1943", "1944", "1945", "1946"],
+      "options": [
+        "1943",
+        "1944",
+        "1945",
+        "1946"
+      ],
       "answer": 2
     },
     {
       "category": "geschiedenis",
       "question": "Wie was de eerste president van de Verenigde Staten?",
-      "options": ["Thomas Jefferson", "George Washington", "Abraham Lincoln", "John Adams"],
+      "options": [
+        "Thomas Jefferson",
+        "George Washington",
+        "Abraham Lincoln",
+        "John Adams"
+      ],
       "answer": 1
     },
     {
       "category": "geschiedenis",
       "question": "In welk jaar viel de Berlijnse Muur?",
-      "options": ["1987", "1989", "1991", "1993"],
+      "options": [
+        "1987",
+        "1989",
+        "1991",
+        "1993"
+      ],
       "answer": 1
     },
     {
       "category": "geschiedenis",
       "question": "Welke Nederlandse schilder schilderde 'De Nachtwacht'?",
-      "options": ["Vincent van Gogh", "Johannes Vermeer", "Rembrandt van Rijn", "Piet Mondriaan"],
+      "options": [
+        "Vincent van Gogh",
+        "Johannes Vermeer",
+        "Rembrandt van Rijn",
+        "Piet Mondriaan"
+      ],
       "answer": 2
     },
     {
       "category": "geschiedenis",
       "question": "Hoe heette de eerste mens op de maan?",
-      "options": ["Buzz Aldrin", "Yuri Gagarin", "Neil Armstrong", "Michael Collins"],
+      "options": [
+        "Buzz Aldrin",
+        "Yuri Gagarin",
+        "Neil Armstrong",
+        "Michael Collins"
+      ],
       "answer": 2
     },
     {
       "category": "geschiedenis",
       "question": "In welk jaar werd Nederland bevrijd van de Duitse bezetting?",
-      "options": ["1943", "1944", "1945", "1946"],
+      "options": [
+        "1943",
+        "1944",
+        "1945",
+        "1946"
+      ],
       "answer": 2
     },
     {
       "category": "geschiedenis",
       "question": "Welke Romeinse keizer stak volgens de legende Rome in brand?",
-      "options": ["Caesar", "Nero", "Augustus", "Caligula"],
+      "options": [
+        "Caesar",
+        "Nero",
+        "Augustus",
+        "Caligula"
+      ],
       "answer": 1
     },
     {
       "category": "geschiedenis",
       "question": "In welk jaar werd de Verenigde Oost-Indische Compagnie (VOC) opgericht?",
-      "options": ["1602", "1648", "1700", "1581"],
+      "options": [
+        "1602",
+        "1648",
+        "1700",
+        "1581"
+      ],
       "answer": 0
     },
     {
       "category": "geschiedenis",
       "question": "Wie schreef het dagboek van Anne Frank?",
-      "options": ["Margot Frank", "Otto Frank", "Anne Frank", "Miep Gies"],
+      "options": [
+        "Margot Frank",
+        "Otto Frank",
+        "Anne Frank",
+        "Miep Gies"
+      ],
       "answer": 2
     },
     {
       "category": "wetenschap",
       "question": "Wat is het chemische symbool voor goud?",
-      "options": ["Go", "Gd", "Au", "Ag"],
+      "options": [
+        "Go",
+        "Gd",
+        "Au",
+        "Ag"
+      ],
       "answer": 2
     },
     {
       "category": "wetenschap",
       "question": "Welke planeet staat het dichtst bij de zon?",
-      "options": ["Venus", "Mercurius", "Mars", "Aarde"],
+      "options": [
+        "Venus",
+        "Mercurius",
+        "Mars",
+        "Aarde"
+      ],
       "answer": 1
     },
     {
       "category": "wetenschap",
       "question": "Hoeveel botten heeft een volwassen mens ongeveer?",
-      "options": ["106", "206", "306", "406"],
+      "options": [
+        "106",
+        "206",
+        "306",
+        "406"
+      ],
       "answer": 1
     },
     {
       "category": "wetenschap",
       "question": "Wat is de snelheid van het licht in vacuüm (afgerond)?",
-      "options": ["150.000 km/s", "300.000 km/s", "500.000 km/s", "1.000.000 km/s"],
+      "options": [
+        "150.000 km/s",
+        "300.000 km/s",
+        "500.000 km/s",
+        "1.000.000 km/s"
+      ],
       "answer": 1
     },
     {
       "category": "wetenschap",
       "question": "Welk gas ademen planten in voor fotosynthese?",
-      "options": ["Zuurstof", "Stikstof", "Koolstofdioxide", "Waterstof"],
+      "options": [
+        "Zuurstof",
+        "Stikstof",
+        "Koolstofdioxide",
+        "Waterstof"
+      ],
       "answer": 2
     },
     {
       "category": "wetenschap",
       "question": "Wie formuleerde de algemene relativiteitstheorie?",
-      "options": ["Isaac Newton", "Nikola Tesla", "Albert Einstein", "Stephen Hawking"],
+      "options": [
+        "Isaac Newton",
+        "Nikola Tesla",
+        "Albert Einstein",
+        "Stephen Hawking"
+      ],
       "answer": 2
     },
     {
       "category": "wetenschap",
       "question": "Wat is het grootste orgaan van het menselijk lichaam?",
-      "options": ["Lever", "Hersenen", "Huid", "Longen"],
+      "options": [
+        "Lever",
+        "Hersenen",
+        "Huid",
+        "Longen"
+      ],
       "answer": 2
     },
     {
       "category": "wetenschap",
       "question": "Welke bloedgroep is de universele donor voor rode bloedcellen?",
-      "options": ["AB+", "O-", "A+", "B-"],
+      "options": [
+        "AB+",
+        "O-",
+        "A+",
+        "B-"
+      ],
       "answer": 1
     },
     {
       "category": "wetenschap",
       "question": "Hoeveel chromosomen heeft een normale menselijke cel?",
-      "options": ["23", "44", "46", "48"],
+      "options": [
+        "23",
+        "44",
+        "46",
+        "48"
+      ],
       "answer": 2
     },
     {
       "category": "film",
       "question": "Wie regisseerde de film 'Jurassic Park' (1993)?",
-      "options": ["George Lucas", "Steven Spielberg", "James Cameron", "Ridley Scott"],
+      "options": [
+        "George Lucas",
+        "Steven Spielberg",
+        "James Cameron",
+        "Ridley Scott"
+      ],
       "answer": 1
     },
     {
       "category": "film",
       "question": "Welke acteur speelt Jack Sparrow in 'Pirates of the Caribbean'?",
-      "options": ["Orlando Bloom", "Johnny Depp", "Brad Pitt", "Leonardo DiCaprio"],
+      "options": [
+        "Orlando Bloom",
+        "Johnny Depp",
+        "Brad Pitt",
+        "Leonardo DiCaprio"
+      ],
       "answer": 1
     },
     {
       "category": "film",
       "question": "In welke film hoor je de zin 'May the Force be with you'?",
-      "options": ["Star Trek", "Star Wars", "The Matrix", "Avatar"],
+      "options": [
+        "Star Trek",
+        "Star Wars",
+        "The Matrix",
+        "Avatar"
+      ],
       "answer": 1
     },
     {
       "category": "film",
       "question": "Welke animatiestudio maakte 'Toy Story'?",
-      "options": ["DreamWorks", "Pixar", "Disney", "Studio Ghibli"],
+      "options": [
+        "DreamWorks",
+        "Pixar",
+        "Disney",
+        "Studio Ghibli"
+      ],
       "answer": 1
     },
     {
       "category": "film",
       "question": "Wie speelt Neo in de film 'The Matrix'?",
-      "options": ["Tom Cruise", "Keanu Reeves", "Will Smith", "Brad Pitt"],
+      "options": [
+        "Tom Cruise",
+        "Keanu Reeves",
+        "Will Smith",
+        "Brad Pitt"
+      ],
       "answer": 1
     },
     {
       "category": "film",
       "question": "Welke film won de Oscar voor Beste Film in 1994?",
-      "options": ["Forrest Gump", "Pulp Fiction", "The Shawshank Redemption", "The Lion King"],
+      "options": [
+        "Forrest Gump",
+        "Pulp Fiction",
+        "The Shawshank Redemption",
+        "The Lion King"
+      ],
       "answer": 0
     },
     {
       "category": "film",
       "question": "Welke Nederlandse film won een Oscar voor Beste Buitenlandse Film in 1995?",
-      "options": ["Karakter", "Antonia", "De Aanslag", "Turks Fruit"],
+      "options": [
+        "Karakter",
+        "Antonia",
+        "De Aanslag",
+        "Turks Fruit"
+      ],
       "answer": 1
     },
     {
       "category": "film",
       "question": "Wie regisseerde 'The Godfather'?",
-      "options": ["Martin Scorsese", "Francis Ford Coppola", "Stanley Kubrick", "Alfred Hitchcock"],
+      "options": [
+        "Martin Scorsese",
+        "Francis Ford Coppola",
+        "Stanley Kubrick",
+        "Alfred Hitchcock"
+      ],
       "answer": 1
     },
     {
       "category": "sport",
       "question": "Hoeveel spelers staan er per team op het veld bij voetbal?",
-      "options": ["9", "10", "11", "12"],
+      "options": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
       "answer": 2
     },
     {
       "category": "sport",
       "question": "In welk land werden de Olympische Spelen van 2008 gehouden?",
-      "options": ["Griekenland", "China", "Verenigd Koninkrijk", "Brazilië"],
+      "options": [
+        "Griekenland",
+        "China",
+        "Verenigd Koninkrijk",
+        "Brazilië"
+      ],
       "answer": 1
     },
     {
       "category": "sport",
       "question": "Welke sport speelt Max Verstappen?",
-      "options": ["Schaatsen", "Wielrennen", "Formule 1", "Tennis"],
+      "options": [
+        "Schaatsen",
+        "Wielrennen",
+        "Formule 1",
+        "Tennis"
+      ],
       "answer": 2
     },
     {
       "category": "sport",
       "question": "Hoeveel ringen telt het olympisch symbool?",
-      "options": ["4", "5", "6", "7"],
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
       "answer": 1
     },
     {
       "category": "sport",
       "question": "In welk jaar won Nederland het EK voetbal?",
-      "options": ["1974", "1988", "1998", "2010"],
+      "options": [
+        "1974",
+        "1988",
+        "1998",
+        "2010"
+      ],
       "answer": 1
     },
     {
       "category": "sport",
       "question": "Bij welke sport hoort de term 'love'?",
-      "options": ["Golf", "Tennis", "Badminton", "Voetbal"],
+      "options": [
+        "Golf",
+        "Tennis",
+        "Badminton",
+        "Voetbal"
+      ],
       "answer": 1
     },
     {
       "category": "sport",
       "question": "Hoeveel spelers vormen een basketbalteam op het veld?",
-      "options": ["4", "5", "6", "7"],
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
       "answer": 1
     },
     {
       "category": "sport",
       "question": "Welke Nederlandse schaatser won goud op 5 km in Pyeongchang 2018?",
-      "options": ["Sven Kramer", "Patrick Roest", "Ireen Wüst", "Kjeld Nuis"],
+      "options": [
+        "Sven Kramer",
+        "Patrick Roest",
+        "Ireen Wüst",
+        "Kjeld Nuis"
+      ],
       "answer": 0
     },
     {
       "category": "geografie",
       "question": "Wat is de hoofdstad van Australië?",
-      "options": ["Sydney", "Melbourne", "Canberra", "Brisbane"],
+      "options": [
+        "Sydney",
+        "Melbourne",
+        "Canberra",
+        "Brisbane"
+      ],
       "answer": 2
     },
     {
       "category": "geografie",
       "question": "Welke rivier stroomt door Parijs?",
-      "options": ["Rijn", "Donau", "Seine", "Theems"],
+      "options": [
+        "Rijn",
+        "Donau",
+        "Seine",
+        "Theems"
+      ],
       "answer": 2
     },
     {
       "category": "geografie",
       "question": "Wat is het grootste land ter wereld qua oppervlakte?",
-      "options": ["China", "Verenigde Staten", "Canada", "Rusland"],
+      "options": [
+        "China",
+        "Verenigde Staten",
+        "Canada",
+        "Rusland"
+      ],
       "answer": 3
     },
     {
       "category": "geografie",
       "question": "Op welk continent ligt Egypte?",
-      "options": ["Azië", "Afrika", "Europa", "Oceanië"],
+      "options": [
+        "Azië",
+        "Afrika",
+        "Europa",
+        "Oceanië"
+      ],
       "answer": 1
     },
     {
       "category": "geografie",
       "question": "Wat is de hoogste berg ter wereld?",
-      "options": ["K2", "Mont Blanc", "Mount Everest", "Kilimanjaro"],
+      "options": [
+        "K2",
+        "Mont Blanc",
+        "Mount Everest",
+        "Kilimanjaro"
+      ],
       "answer": 2
     },
     {
       "category": "geografie",
       "question": "Welke oceaan is de grootste?",
-      "options": ["Atlantische Oceaan", "Indische Oceaan", "Stille Oceaan", "Noordelijke IJszee"],
+      "options": [
+        "Atlantische Oceaan",
+        "Indische Oceaan",
+        "Stille Oceaan",
+        "Noordelijke IJszee"
+      ],
       "answer": 2
     },
     {
       "category": "geografie",
       "question": "Wat is de hoofdstad van Canada?",
-      "options": ["Toronto", "Montreal", "Vancouver", "Ottawa"],
+      "options": [
+        "Toronto",
+        "Montreal",
+        "Vancouver",
+        "Ottawa"
+      ],
       "answer": 3
     },
     {
       "category": "geografie",
       "question": "Welke provincie is de hoofdstad van Nederland?",
-      "options": ["Zuid-Holland", "Noord-Holland", "Utrecht", "Flevoland"],
+      "options": [
+        "Zuid-Holland",
+        "Noord-Holland",
+        "Utrecht",
+        "Flevoland"
+      ],
       "answer": 1
     },
     {
       "category": "geografie",
       "question": "Hoeveel provincies telt Nederland?",
-      "options": ["10", "11", "12", "13"],
+      "options": [
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
       "answer": 2
     },
     {
       "category": "geografie",
       "question": "Welk land heeft de meeste inwoners ter wereld?",
-      "options": ["China", "India", "Verenigde Staten", "Indonesië"],
+      "options": [
+        "China",
+        "India",
+        "Verenigde Staten",
+        "Indonesië"
+      ],
       "answer": 1
     },
     {
       "category": "geografie",
       "question": "Door welke stad stroomt de Theems?",
-      "options": ["Manchester", "Liverpool", "Londen", "Edinburgh"],
+      "options": [
+        "Manchester",
+        "Liverpool",
+        "Londen",
+        "Edinburgh"
+      ],
       "answer": 2
     },
     {
       "category": "muziek",
       "question": "Welke band zong 'Bohemian Rhapsody'?",
-      "options": ["The Beatles", "Queen", "Led Zeppelin", "The Rolling Stones"],
+      "options": [
+        "The Beatles",
+        "Queen",
+        "Led Zeppelin",
+        "The Rolling Stones"
+      ],
       "answer": 1
     },
     {
       "category": "muziek",
       "question": "Hoeveel snaren heeft een standaard gitaar?",
-      "options": ["4", "5", "6", "7"],
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
       "answer": 2
     },
     {
       "category": "muziek",
       "question": "Welke Nederlandse DJ maakte 'Animals'?",
-      "options": ["Tiësto", "Hardwell", "Martin Garrix", "Afrojack"],
+      "options": [
+        "Tiësto",
+        "Hardwell",
+        "Martin Garrix",
+        "Afrojack"
+      ],
       "answer": 2
     },
     {
       "category": "muziek",
       "question": "Wie componeerde 'De Vier Jaargetijden'?",
-      "options": ["Bach", "Mozart", "Vivaldi", "Beethoven"],
+      "options": [
+        "Bach",
+        "Mozart",
+        "Vivaldi",
+        "Beethoven"
+      ],
       "answer": 2
     },
     {
       "category": "muziek",
       "question": "Uit welke stad komt The Beatles?",
-      "options": ["Londen", "Manchester", "Liverpool", "Birmingham"],
+      "options": [
+        "Londen",
+        "Manchester",
+        "Liverpool",
+        "Birmingham"
+      ],
       "answer": 2
     },
     {
       "category": "muziek",
       "question": "Wie zong 'Like a Rolling Stone'?",
-      "options": ["Elvis Presley", "Bob Dylan", "Bruce Springsteen", "Neil Young"],
+      "options": [
+        "Elvis Presley",
+        "Bob Dylan",
+        "Bruce Springsteen",
+        "Neil Young"
+      ],
       "answer": 1
     },
     {
       "category": "muziek",
       "question": "Welk instrument bespeelde Louis Armstrong vooral?",
-      "options": ["Saxofoon", "Trompet", "Piano", "Gitaar"],
+      "options": [
+        "Saxofoon",
+        "Trompet",
+        "Piano",
+        "Gitaar"
+      ],
       "answer": 1
     },
     {
       "category": "muziek",
       "question": "In welk jaar overleed Michael Jackson?",
-      "options": ["2007", "2009", "2011", "2013"],
+      "options": [
+        "2007",
+        "2009",
+        "2011",
+        "2013"
+      ],
       "answer": 1
     },
     {
       "category": "muziek",
       "question": "Welke Nederlandse zangeres won het Eurovisie Songfestival in 2019?",
-      "options": ["Anouk", "Edsilia Rombley", "Trijntje Oosterhuis", "Duncan Laurence"],
+      "options": [
+        "Anouk",
+        "Edsilia Rombley",
+        "Trijntje Oosterhuis",
+        "Duncan Laurence"
+      ],
       "answer": 3
+    },
+    {
+      "category": "wetenschap",
+      "question": "Wat is de eenheid van elektrische spanning?",
+      "options": [
+        "Ampère",
+        "Volt",
+        "Watt",
+        "Ohm"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "wetenschap",
+      "question": "Hoe heet het proces waarbij water verdampt?",
+      "options": [
+        "Condensatie",
+        "Sublimatie",
+        "Verdamping",
+        "Stolling"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "wetenschap",
+      "question": "Welk element heeft het symbool 'Fe'?",
+      "options": [
+        "Fluor",
+        "IJzer",
+        "Koper",
+        "Lood"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "wetenschap",
+      "question": "Wat is H2O?",
+      "options": [
+        "Zoutzuur",
+        "Waterstofperoxide",
+        "Water",
+        "Ammoniak"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "wetenschap",
+      "question": "Hoeveel graden Celsius is het kookpunt van water op zeeniveau?",
+      "options": [
+        "90",
+        "95",
+        "100",
+        "110"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "wetenschap",
+      "question": "Hoe heet het kleinste deeltje van een element?",
+      "options": [
+        "Molecuul",
+        "Atoom",
+        "Cel",
+        "Ion"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "wetenschap",
+      "question": "Welke wetenschapper ontdekte penicilline?",
+      "options": [
+        "Louis Pasteur",
+        "Marie Curie",
+        "Alexander Fleming",
+        "Charles Darwin"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "wetenschap",
+      "question": "Welk orgaan pompt bloed door het lichaam?",
+      "options": [
+        "Longen",
+        "Nieren",
+        "Lever",
+        "Hart"
+      ],
+      "answer": 3
+    },
+    {
+      "category": "wetenschap",
+      "question": "Wat meet een seismograaf?",
+      "options": [
+        "Temperatuur",
+        "Aardbevingen",
+        "Luchtdruk",
+        "Geluidssterkte"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "wetenschap",
+      "question": "Wat is de pH-waarde van zuiver water?",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "wetenschap",
+      "question": "Welk gas maakt ongeveer 78% van onze atmosfeer uit?",
+      "options": [
+        "Zuurstof",
+        "Stikstof",
+        "Argon",
+        "Koolstofdioxide"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "wetenschap",
+      "question": "Welke formule beschrijft de energie volgens Einstein?",
+      "options": [
+        "F = m·a",
+        "E = m·c²",
+        "P = V·I",
+        "a² + b² = c²"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "wetenschap",
+      "question": "Wat zijn de bouwstenen van eiwitten?",
+      "options": [
+        "Vetzuren",
+        "Aminozuren",
+        "Nucleotiden",
+        "Suikers"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "geschiedenis",
+      "question": "Wie was de leider van nazi-Duitsland tijdens WO II?",
+      "options": [
+        "Heinrich Himmler",
+        "Joseph Goebbels",
+        "Adolf Hitler",
+        "Hermann Göring"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "geschiedenis",
+      "question": "In welk jaar werd Nelson Mandela vrijgelaten uit de gevangenis?",
+      "options": [
+        "1985",
+        "1988",
+        "1990",
+        "1994"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "geschiedenis",
+      "question": "Welke Egyptische farao werd beroemd door zijn intacte graftombe?",
+      "options": [
+        "Ramses II",
+        "Toetanchamon",
+        "Cheops",
+        "Achnaton"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "geschiedenis",
+      "question": "In welk jaar werd de Eerste Wereldoorlog gestart?",
+      "options": [
+        "1912",
+        "1914",
+        "1916",
+        "1918"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "geschiedenis",
+      "question": "Wie schilderde de Mona Lisa?",
+      "options": [
+        "Michelangelo",
+        "Rafaël",
+        "Leonardo da Vinci",
+        "Donatello"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "geschiedenis",
+      "question": "Welke muur werd in 1961 gebouwd en in 1989 afgebroken?",
+      "options": [
+        "De Muur van Jeruzalem",
+        "De Berlijnse Muur",
+        "De Chinese Muur",
+        "Hadrianus' Muur"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "geschiedenis",
+      "question": "Wie was de eerste keizer van het verenigde China?",
+      "options": [
+        "Qin Shi Huang",
+        "Kublai Khan",
+        "Confucius",
+        "Mao Zedong"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "geschiedenis",
+      "question": "In welk jaar ging de Titanic ten onder?",
+      "options": [
+        "1905",
+        "1912",
+        "1918",
+        "1921"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "geschiedenis",
+      "question": "Welke vrouw was premier van het Verenigd Koninkrijk van 1979 tot 1990?",
+      "options": [
+        "Theresa May",
+        "Margaret Thatcher",
+        "Angela Merkel",
+        "Golda Meïr"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "geschiedenis",
+      "question": "In welk jaar viel Constantinopel in handen van de Ottomanen?",
+      "options": [
+        "1204",
+        "1389",
+        "1453",
+        "1492"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "geschiedenis",
+      "question": "Welke oorlog werd gevoerd tussen 1950 en 1953?",
+      "options": [
+        "Vietnam-oorlog",
+        "Koreaanse Oorlog",
+        "Golfoorlog",
+        "Suezcrisis"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "geschiedenis",
+      "question": "Hoe heette het Apollo-ruimtevaartprogramma dat mensen naar de maan bracht?",
+      "options": [
+        "Mercury",
+        "Gemini",
+        "Apollo",
+        "Artemis"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "film",
+      "question": "Welke film volgt Frodo Balings?",
+      "options": [
+        "The Hobbit",
+        "Star Wars",
+        "The Lord of the Rings",
+        "Harry Potter"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "film",
+      "question": "Wie speelt de Joker in 'The Dark Knight' (2008)?",
+      "options": [
+        "Jared Leto",
+        "Heath Ledger",
+        "Joaquin Phoenix",
+        "Jack Nicholson"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "film",
+      "question": "Welke regisseur maakte 'Inception' en 'Interstellar'?",
+      "options": [
+        "Steven Spielberg",
+        "Christopher Nolan",
+        "James Cameron",
+        "Denis Villeneuve"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "film",
+      "question": "In welke film zegt een personage 'I'll be back'?",
+      "options": [
+        "RoboCop",
+        "Terminator",
+        "Predator",
+        "Rambo"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "film",
+      "question": "Welke animatiefilm gaat over een leeuwenkoning?",
+      "options": [
+        "Madagascar",
+        "The Lion King",
+        "Bambi",
+        "Zootopia"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "film",
+      "question": "Wie regisseerde 'Titanic' en 'Avatar'?",
+      "options": [
+        "Peter Jackson",
+        "James Cameron",
+        "Ron Howard",
+        "Michael Bay"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "film",
+      "question": "In welk jaar kwam 'The Wizard of Oz' uit?",
+      "options": [
+        "1929",
+        "1939",
+        "1949",
+        "1959"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "film",
+      "question": "Welke acteur speelt James Bond in 'Casino Royale' (2006)?",
+      "options": [
+        "Pierce Brosnan",
+        "Daniel Craig",
+        "Roger Moore",
+        "Timothy Dalton"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "film",
+      "question": "Wie speelde Forrest Gump?",
+      "options": [
+        "Tom Hanks",
+        "Tom Cruise",
+        "Robin Williams",
+        "Robert De Niro"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "film",
+      "question": "Welke film speelt zich af op een ruimteschip genaamd 'Nostromo'?",
+      "options": [
+        "Star Trek",
+        "Alien",
+        "2001: A Space Odyssey",
+        "Event Horizon"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "sport",
+      "question": "Hoeveel minuten duurt een reguliere voetbalwedstrijd?",
+      "options": [
+        "60",
+        "80",
+        "90",
+        "100"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "sport",
+      "question": "Welke tennisspeler won de meeste Grand Slams in het mannenenkelspel?",
+      "options": [
+        "Roger Federer",
+        "Rafael Nadal",
+        "Novak Djokovic",
+        "Pete Sampras"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "sport",
+      "question": "In welke sport gebruik je een 'shuttle'?",
+      "options": [
+        "Tennis",
+        "Squash",
+        "Badminton",
+        "Tafeltennis"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "sport",
+      "question": "Hoeveel punten levert een touchdown op in American football?",
+      "options": [
+        "3",
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "sport",
+      "question": "Welk land wint de 'Rugby World Cup' het vaakst?",
+      "options": [
+        "Australië",
+        "Zuid-Afrika",
+        "Nieuw-Zeeland",
+        "Engeland"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "sport",
+      "question": "Welke Nederlandse wielrenner won de Tour de France in 1980?",
+      "options": [
+        "Jan Raas",
+        "Joop Zoetemelk",
+        "Hennie Kuiper",
+        "Gerrie Knetemann"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "sport",
+      "question": "Hoe heet de hoogste professionele ijshockey-competitie ter wereld?",
+      "options": [
+        "KHL",
+        "NHL",
+        "AHL",
+        "EIHL"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "sport",
+      "question": "Welke sport is geassocieerd met Wimbledon?",
+      "options": [
+        "Golf",
+        "Tennis",
+        "Cricket",
+        "Roeien"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "sport",
+      "question": "In welk jaar werden de eerste moderne Olympische Spelen gehouden?",
+      "options": [
+        "1886",
+        "1896",
+        "1900",
+        "1924"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "sport",
+      "question": "Hoeveel spelers heeft een volleybalteam op het veld?",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "geografie",
+      "question": "Wat is de hoofdstad van Frankrijk?",
+      "options": [
+        "Lyon",
+        "Marseille",
+        "Parijs",
+        "Bordeaux"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "geografie",
+      "question": "Welk land ligt ten noorden van Nederland (over zee gezien)?",
+      "options": [
+        "België",
+        "Duitsland",
+        "Denemarken",
+        "Noorwegen"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "geografie",
+      "question": "Welke woestijn is de grootste warme woestijn ter wereld?",
+      "options": [
+        "Gobi",
+        "Sahara",
+        "Kalahari",
+        "Atacama"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "geografie",
+      "question": "Wat is de hoofdstad van Japan?",
+      "options": [
+        "Kyoto",
+        "Osaka",
+        "Tokio",
+        "Seoel"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "geografie",
+      "question": "Welke zee ligt tussen Italië en Kroatië?",
+      "options": [
+        "Egeïsche Zee",
+        "Adriatische Zee",
+        "Ionische Zee",
+        "Tyrreense Zee"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "geografie",
+      "question": "Wat is de hoofdstad van Spanje?",
+      "options": [
+        "Barcelona",
+        "Madrid",
+        "Sevilla",
+        "Valencia"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "geografie",
+      "question": "In welk werelddeel ligt Brazilië?",
+      "options": [
+        "Noord-Amerika",
+        "Zuid-Amerika",
+        "Afrika",
+        "Oceanië"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "geografie",
+      "question": "Wat is de valuta van Zweden?",
+      "options": [
+        "Euro",
+        "Kroon",
+        "Krona",
+        "Forint"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "geografie",
+      "question": "Welk land heeft meer dan 17.000 eilanden?",
+      "options": [
+        "Filipijnen",
+        "Japan",
+        "Indonesië",
+        "Maleisië"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "geografie",
+      "question": "Wat is de langste rivier ter wereld?",
+      "options": [
+        "Amazone",
+        "Nijl",
+        "Yangtze",
+        "Mississippi"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "geografie",
+      "question": "Welk land heeft Reykjavik als hoofdstad?",
+      "options": [
+        "Noorwegen",
+        "Ierland",
+        "IJsland",
+        "Finland"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "muziek",
+      "question": "Welke zangeres staat bekend als 'Queen of Pop'?",
+      "options": [
+        "Cher",
+        "Madonna",
+        "Whitney Houston",
+        "Britney Spears"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "muziek",
+      "question": "Wie componeerde 'Eine kleine Nachtmusik'?",
+      "options": [
+        "Haydn",
+        "Mozart",
+        "Bach",
+        "Schubert"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "muziek",
+      "question": "Welke band maakte 'Stairway to Heaven'?",
+      "options": [
+        "Pink Floyd",
+        "Led Zeppelin",
+        "The Who",
+        "Deep Purple"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "muziek",
+      "question": "Hoeveel toetsen heeft een standaard piano?",
+      "options": [
+        "66",
+        "76",
+        "88",
+        "100"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "muziek",
+      "question": "Welk muziekgenre ontstond in New Orleans rond 1900?",
+      "options": [
+        "Blues",
+        "Jazz",
+        "Rock",
+        "Country"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "muziek",
+      "question": "Welke Zweedse popgroep zong 'Dancing Queen'?",
+      "options": [
+        "Ace of Base",
+        "ABBA",
+        "Roxette",
+        "A-ha"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "muziek",
+      "question": "Welk instrument bespeelde Jimi Hendrix vooral?",
+      "options": [
+        "Basgitaar",
+        "Elektrische gitaar",
+        "Drums",
+        "Keyboard"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "muziek",
+      "question": "Welk lied wordt traditioneel op oudjaarsavond gezongen in Schotland?",
+      "options": [
+        "God Save the King",
+        "Auld Lang Syne",
+        "Scotland the Brave",
+        "Flower of Scotland"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "muziek",
+      "question": "Wat betekent de tempo-aanduiding 'presto'?",
+      "options": [
+        "Langzaam",
+        "Gematigd",
+        "Snel",
+        "Zeer snel"
+      ],
+      "answer": 3
+    },
+    {
+      "category": "natuur",
+      "question": "Welke boom levert eikels?",
+      "options": [
+        "Beuk",
+        "Eik",
+        "Berk",
+        "Kastanje"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "natuur",
+      "question": "Welke bloem staat bekend als nationale bloem van Nederland?",
+      "options": [
+        "Roos",
+        "Zonnebloem",
+        "Tulp",
+        "Narcis"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "natuur",
+      "question": "Hoeveel bladeren heeft een klavertjevier?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "natuur",
+      "question": "Welke boom laat 's winters zijn naalden vallen?",
+      "options": [
+        "Spar",
+        "Den",
+        "Lariks",
+        "Cipres"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "natuur",
+      "question": "Wat is de hoofdbron van zuurstof in de atmosfeer?",
+      "options": [
+        "Vulkanen",
+        "Planten en algen",
+        "Oceanen",
+        "Gebergtes"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "natuur",
+      "question": "Welke boomsoort kan het oudst worden?",
+      "options": [
+        "Eik",
+        "Beuk",
+        "Sequoia",
+        "Berk"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "natuur",
+      "question": "Hoe heet de grootste tropische regenwoud ter wereld?",
+      "options": [
+        "Congo-bekken",
+        "Amazone",
+        "Borneo",
+        "Daintree"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "natuur",
+      "question": "Welke planeet wordt 'de rode planeet' genoemd?",
+      "options": [
+        "Venus",
+        "Mars",
+        "Jupiter",
+        "Saturnus"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "natuur",
+      "question": "Welke bloem draait zich naar de zon?",
+      "options": [
+        "Roos",
+        "Zonnebloem",
+        "Tulp",
+        "Madelief"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "natuur",
+      "question": "Wat is de hoogste waterval ter wereld?",
+      "options": [
+        "Victoriawatervallen",
+        "Niagara",
+        "Angel Falls",
+        "Iguaçu"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "natuur",
+      "question": "Welke natuurlijke ramp meet men met de schaal van Richter?",
+      "options": [
+        "Orkaan",
+        "Aardbeving",
+        "Tornado",
+        "Vulkaanuitbarsting"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "natuur",
+      "question": "Welk gesteente ontstaat bij stollen van magma?",
+      "options": [
+        "Sedimentair",
+        "Metamorf",
+        "Stollingsgesteente",
+        "Kalksteen"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "natuur",
+      "question": "Wat is de grootste oceaan ter wereld (herhaalt niet)?",
+      "options": [
+        "Indische",
+        "Atlantische",
+        "Stille",
+        "Arctische"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "natuur",
+      "question": "Welke natuurlijke satelliet draait om de aarde?",
+      "options": [
+        "Phobos",
+        "Titan",
+        "De Maan",
+        "Europa"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "natuur",
+      "question": "Wat is het grootste eiland ter wereld?",
+      "options": [
+        "Madagaskar",
+        "Groenland",
+        "Nieuw-Guinea",
+        "Borneo"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "natuur",
+      "question": "Welk verschijnsel zorgt voor eb en vloed?",
+      "options": [
+        "Wind",
+        "Zwaartekracht van de maan",
+        "Temperatuur",
+        "Draaiing aarde"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "natuur",
+      "question": "Welk dier is geen zoogdier?",
+      "options": [
+        "Walvis",
+        "Vleermuis",
+        "Krokodil",
+        "Dolfijn"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "natuur",
+      "question": "Wat is fotosynthese?",
+      "options": [
+        "Ademhaling van planten",
+        "Voedselproductie met licht",
+        "Celdeling",
+        "Verdamping"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "literatuur",
+      "question": "Wie schreef 'Romeo en Julia'?",
+      "options": [
+        "Charles Dickens",
+        "William Shakespeare",
+        "Mark Twain",
+        "Oscar Wilde"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "literatuur",
+      "question": "Wie schreef 'De avonden'?",
+      "options": [
+        "Harry Mulisch",
+        "Willem Frederik Hermans",
+        "Gerard Reve",
+        "Hella S. Haasse"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "literatuur",
+      "question": "Welk boek begint met 'Call me Ishmael'?",
+      "options": [
+        "Moby-Dick",
+        "The Old Man and the Sea",
+        "Treasure Island",
+        "Robinson Crusoe"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "literatuur",
+      "question": "Wie schreef 'In Search of Lost Time'?",
+      "options": [
+        "James Joyce",
+        "Marcel Proust",
+        "Franz Kafka",
+        "Albert Camus"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "literatuur",
+      "question": "Welke schrijver creëerde Sherlock Holmes?",
+      "options": [
+        "Agatha Christie",
+        "Edgar Allan Poe",
+        "Arthur Conan Doyle",
+        "Ian Fleming"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "literatuur",
+      "question": "Wie schreef '1984'?",
+      "options": [
+        "Aldous Huxley",
+        "George Orwell",
+        "Ray Bradbury",
+        "Philip K. Dick"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "literatuur",
+      "question": "Welk boek schreef Harper Lee in 1960?",
+      "options": [
+        "The Catcher in the Rye",
+        "To Kill a Mockingbird",
+        "The Grapes of Wrath",
+        "Beloved"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "literatuur",
+      "question": "Wie schreef 'Max Havelaar'?",
+      "options": [
+        "Louis Couperus",
+        "Multatuli",
+        "Nescio",
+        "Hendrik Conscience"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "literatuur",
+      "question": "Welke auteur schreef over detective Hercule Poirot?",
+      "options": [
+        "Dorothy Sayers",
+        "Agatha Christie",
+        "P.D. James",
+        "Ruth Rendell"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "literatuur",
+      "question": "Wie schreef 'Misdaad en straf'?",
+      "options": [
+        "Leo Tolstoj",
+        "Fjodor Dostojevski",
+        "Anton Tsjechov",
+        "Ivan Toergenjev"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "literatuur",
+      "question": "Welke roman draait rond het personage Jay Gatsby?",
+      "options": [
+        "The Great Gatsby",
+        "This Side of Paradise",
+        "Tender is the Night",
+        "The Beautiful and Damned"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "literatuur",
+      "question": "Wie schreef de 'Harry Potter'-reeks?",
+      "options": [
+        "Roald Dahl",
+        "J.K. Rowling",
+        "C.S. Lewis",
+        "Philip Pullman"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "literatuur",
+      "question": "Welke Nederlandse auteur schreef 'De ontdekking van de hemel'?",
+      "options": [
+        "Gerard Reve",
+        "Harry Mulisch",
+        "Cees Nooteboom",
+        "A.F.Th. van der Heijden"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "literatuur",
+      "question": "Wie schreef 'Don Quichot'?",
+      "options": [
+        "Lope de Vega",
+        "Miguel de Cervantes",
+        "Dante Alighieri",
+        "Giovanni Boccaccio"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "kunst",
+      "question": "Wie schilderde 'De Sterrennacht'?",
+      "options": [
+        "Paul Cézanne",
+        "Vincent van Gogh",
+        "Claude Monet",
+        "Edvard Munch"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "kunst",
+      "question": "Welke stroming staat bekend om vervormde figuren en droomachtige beelden?",
+      "options": [
+        "Impressionisme",
+        "Surrealisme",
+        "Kubisme",
+        "Realisme"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "kunst",
+      "question": "Wie maakte het beeld 'De Denker'?",
+      "options": [
+        "Michelangelo",
+        "Auguste Rodin",
+        "Donatello",
+        "Henry Moore"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "kunst",
+      "question": "In welk museum hangt 'De Nachtwacht'?",
+      "options": [
+        "Louvre",
+        "Rijksmuseum",
+        "Prado",
+        "Uffizi"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "kunst",
+      "question": "Welke Spaanse schilder is medeoprichter van het kubisme?",
+      "options": [
+        "Salvador Dalí",
+        "Joan Miró",
+        "Pablo Picasso",
+        "Francisco Goya"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "kunst",
+      "question": "Welke kunststroming staat bekend om kleurrijke lichteffecten en buitenwerk?",
+      "options": [
+        "Impressionisme",
+        "Barok",
+        "Gothiek",
+        "Rococo"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "kunst",
+      "question": "Wie schilderde 'Meisje met de parel'?",
+      "options": [
+        "Rembrandt",
+        "Jan Steen",
+        "Johannes Vermeer",
+        "Frans Hals"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "kunst",
+      "question": "Welke kunstenaar staat bekend om spikkel-schilderijen (pointillisme)?",
+      "options": [
+        "Paul Signac",
+        "Henri Matisse",
+        "Georges Seurat",
+        "Paul Gauguin"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "kunst",
+      "question": "Welke Italiaan schilderde de plafondfresco's van de Sixtijnse Kapel?",
+      "options": [
+        "Leonardo da Vinci",
+        "Rafaël",
+        "Michelangelo",
+        "Caravaggio"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "kunst",
+      "question": "Uit welke eeuw stamt de schilderkunst van de Nederlandse Gouden Eeuw?",
+      "options": [
+        "15de",
+        "16de",
+        "17de",
+        "18de"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "kunst",
+      "question": "Welke beeldhouwer maakte 'David' in Florence?",
+      "options": [
+        "Bernini",
+        "Donatello",
+        "Michelangelo",
+        "Ghiberti"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "kunst",
+      "question": "Welke Nederlandse schilder staat bekend om strakke rode/gele/blauwe vlakken?",
+      "options": [
+        "Karel Appel",
+        "Piet Mondriaan",
+        "Theo van Doesburg",
+        "Jan Sluijters"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "tech",
+      "question": "Wie was medeoprichter van Microsoft samen met Paul Allen?",
+      "options": [
+        "Steve Jobs",
+        "Bill Gates",
+        "Larry Page",
+        "Mark Zuckerberg"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "tech",
+      "question": "Wat betekent de afkorting 'HTML'?",
+      "options": [
+        "HyperText Markup Language",
+        "High Tech Modern Language",
+        "HyperTool Machine Language",
+        "HyperText Machine Linker"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "tech",
+      "question": "In welk jaar werd de iPhone voor het eerst uitgebracht?",
+      "options": [
+        "2005",
+        "2007",
+        "2009",
+        "2011"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "tech",
+      "question": "Welk bedrijf maakt het besturingssysteem Android?",
+      "options": [
+        "Microsoft",
+        "Apple",
+        "Google",
+        "Samsung"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "tech",
+      "question": "Wat betekent 'URL'?",
+      "options": [
+        "Uniform Resource Locator",
+        "Universal Route Link",
+        "Unified Reference Line",
+        "User Route Link"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "tech",
+      "question": "Wie wordt beschouwd als de uitvinder van de World Wide Web?",
+      "options": [
+        "Vint Cerf",
+        "Tim Berners-Lee",
+        "Steve Wozniak",
+        "Linus Torvalds"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "tech",
+      "question": "Welke programmeertaal is vernoemd naar een Britse komiek-groep?",
+      "options": [
+        "Ruby",
+        "Java",
+        "Python",
+        "Perl"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "tech",
+      "question": "Hoeveel bits zitten er in één byte?",
+      "options": [
+        "4",
+        "8",
+        "16",
+        "32"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "tech",
+      "question": "Wat betekent 'CPU'?",
+      "options": [
+        "Central Processing Unit",
+        "Computer Personal Unit",
+        "Control Power Unit",
+        "Central Program Unit"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "tech",
+      "question": "Welk bedrijf bracht in 1984 de eerste Macintosh uit?",
+      "options": [
+        "IBM",
+        "Microsoft",
+        "Apple",
+        "Commodore"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "tech",
+      "question": "Wat is SQL voor?",
+      "options": [
+        "Web design",
+        "Database-query",
+        "Netwerkconfiguratie",
+        "3D-modeling"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "tech",
+      "question": "Welke uitvinder wordt in verband gebracht met de gloeilamp?",
+      "options": [
+        "Nikola Tesla",
+        "Thomas Edison",
+        "Alexander Graham Bell",
+        "Guglielmo Marconi"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "tech",
+      "question": "Wat betekent 'Wi-Fi' oorspronkelijk?",
+      "options": [
+        "Wireless Fidelity",
+        "Web Finder",
+        "Wave Frequency",
+        "Wireless Fixed-line"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "tech",
+      "question": "Welke videogameconsole bracht Nintendo in 2017 uit?",
+      "options": [
+        "Wii",
+        "Wii U",
+        "Switch",
+        "GameCube"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "tech",
+      "question": "Wie is oprichter van Tesla en SpaceX?",
+      "options": [
+        "Jeff Bezos",
+        "Elon Musk",
+        "Larry Ellison",
+        "Peter Thiel"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "tech",
+      "question": "Wat is de functie van een router in een netwerk?",
+      "options": [
+        "Geluid versterken",
+        "Pakketten tussen netwerken sturen",
+        "Stroom leveren",
+        "Schermen vergroten"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "eten",
+      "question": "Uit welk land komt oorspronkelijk de pizza?",
+      "options": [
+        "Griekenland",
+        "Italië",
+        "Spanje",
+        "Turkije"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "eten",
+      "question": "Welke peulvrucht wordt gebruikt voor hummus?",
+      "options": [
+        "Linzen",
+        "Kikkererwten",
+        "Tuinbonen",
+        "Sojabonen"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "eten",
+      "question": "Welk land staat bekend om sushi?",
+      "options": [
+        "China",
+        "Korea",
+        "Japan",
+        "Thailand"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "eten",
+      "question": "Wat is het hoofdbestanddeel van guacamole?",
+      "options": [
+        "Tomaat",
+        "Avocado",
+        "Courgette",
+        "Limoen"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "eten",
+      "question": "Welke kaas is traditioneel afkomstig uit Gouda?",
+      "options": [
+        "Feta",
+        "Brie",
+        "Gouda",
+        "Cheddar"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "eten",
+      "question": "Welk Italiaans gerecht is een dunne laag rauw rundvlees?",
+      "options": [
+        "Carpaccio",
+        "Bresaola",
+        "Vitello tonnato",
+        "Tartare"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "eten",
+      "question": "Waar komt de kroket oorspronkelijk vandaan?",
+      "options": [
+        "Nederland",
+        "Frankrijk",
+        "Duitsland",
+        "België"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "eten",
+      "question": "Welke specerij is de duurste ter wereld per gewicht?",
+      "options": [
+        "Vanille",
+        "Saffraan",
+        "Kardemom",
+        "Kaneel"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "eten",
+      "question": "Wat is het hoofdbestanddeel van tofu?",
+      "options": [
+        "Kikkererwten",
+        "Sojabonen",
+        "Rijst",
+        "Tarwe"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "eten",
+      "question": "Welk gerecht is een Spaanse rijstschotel met zeevruchten?",
+      "options": [
+        "Risotto",
+        "Paella",
+        "Jambalaya",
+        "Biryani"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "eten",
+      "question": "Welke vrucht heeft meer vitamine C dan een sinaasappel?",
+      "options": [
+        "Banaan",
+        "Kiwi",
+        "Appel",
+        "Peer"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "eten",
+      "question": "Wat is het hoofdingrediënt van traditionele pesto?",
+      "options": [
+        "Peterselie",
+        "Basilicum",
+        "Munt",
+        "Rucola"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "eten",
+      "question": "Welk land staat bekend om croissants?",
+      "options": [
+        "Italië",
+        "België",
+        "Frankrijk",
+        "Oostenrijk"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "eten",
+      "question": "Welke dierlijke soort levert foie gras?",
+      "options": [
+        "Kip",
+        "Kalkoen",
+        "Gans/eend",
+        "Patrijs"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "taal",
+      "question": "Hoeveel letters telt het Nederlandse alfabet?",
+      "options": [
+        "24",
+        "25",
+        "26",
+        "27"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "taal",
+      "question": "Wat is de meest gesproken taal ter wereld qua moedertaalsprekers?",
+      "options": [
+        "Engels",
+        "Spaans",
+        "Mandarijn",
+        "Hindi"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "taal",
+      "question": "Welke taal wordt in Brazilië gesproken?",
+      "options": [
+        "Spaans",
+        "Portugees",
+        "Frans",
+        "Engels"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "taal",
+      "question": "Wat betekent 'carpe diem'?",
+      "options": [
+        "Geniet van het leven",
+        "Pluk de dag",
+        "Tijd is geld",
+        "Leven lang leren"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "taal",
+      "question": "In welke taal is het woord 'kangaroo' ontstaan?",
+      "options": [
+        "Oud-Engels",
+        "Aboriginal",
+        "Latijn",
+        "Hindi"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "taal",
+      "question": "Hoe heet het studiegebied van taal?",
+      "options": [
+        "Filologie",
+        "Linguïstiek",
+        "Semantiek",
+        "Etymologie"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "taal",
+      "question": "Welke taal gebruikt het Cyrillisch alfabet?",
+      "options": [
+        "Grieks",
+        "Russisch",
+        "Hongaars",
+        "Turks"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "taal",
+      "question": "Welke taal spreken de meeste Zwitsers?",
+      "options": [
+        "Frans",
+        "Italiaans",
+        "Duits",
+        "Reto-Romaans"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "taal",
+      "question": "Wat is het meervoud van 'medium' in Latijns verband?",
+      "options": [
+        "mediums",
+        "media",
+        "medii",
+        "medica"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "taal",
+      "question": "Welke taal ligt het dichtst bij het Nederlands?",
+      "options": [
+        "Deens",
+        "Fries",
+        "Zweeds",
+        "Noors"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "taal",
+      "question": "Wat is een palindroom?",
+      "options": [
+        "Een rijm",
+        "Een woord dat van beide kanten hetzelfde leest",
+        "Een gedicht",
+        "Een vertaling"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "taal",
+      "question": "Wat is de officiële taal van Egypte?",
+      "options": [
+        "Arabisch",
+        "Koptisch",
+        "Frans",
+        "Engels"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "ruimte",
+      "question": "Welke planeet is de grootste van ons zonnestelsel?",
+      "options": [
+        "Saturnus",
+        "Jupiter",
+        "Neptunus",
+        "Uranus"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "ruimte",
+      "question": "Hoeveel manen heeft Mars?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "ruimte",
+      "question": "Wie was de eerste mens in de ruimte?",
+      "options": [
+        "Neil Armstrong",
+        "Juri Gagarin",
+        "Alan Shepard",
+        "John Glenn"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "ruimte",
+      "question": "Hoe heet ons melkwegstelsel?",
+      "options": [
+        "Andromeda",
+        "Melkweg",
+        "Driehoekenstelsel",
+        "Grote Wolk"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "ruimte",
+      "question": "Wat houdt een zwart gat in?",
+      "options": [
+        "Een extreem dichte ster",
+        "Een gebied met zo'n sterke zwaartekracht dat licht niet ontsnapt",
+        "Een gaseous nebula",
+        "Een neutronenster"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "ruimte",
+      "question": "Welke planeet heeft de meest prominente ringen?",
+      "options": [
+        "Jupiter",
+        "Saturnus",
+        "Uranus",
+        "Neptunus"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "ruimte",
+      "question": "Welk ruimteagentschap is verantwoordelijk voor de Apollo-missies?",
+      "options": [
+        "ESA",
+        "NASA",
+        "Roscosmos",
+        "CNSA"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "ruimte",
+      "question": "Hoe heet de dichtstbijzijnde ster bij de aarde (exclusief de zon)?",
+      "options": [
+        "Sirius",
+        "Alpha Centauri",
+        "Proxima Centauri",
+        "Barnard's Ster"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "ruimte",
+      "question": "Hoeveel aarde-dagen duurt één jaar op Venus ongeveer?",
+      "options": [
+        "225",
+        "365",
+        "687",
+        "88"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "ruimte",
+      "question": "Wat is de grootste planeet die geen ringen heeft?",
+      "options": [
+        "Mars",
+        "Aarde",
+        "Venus",
+        "Mercurius"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "ruimte",
+      "question": "Welk ruimtetelescoop werd in 1990 gelanceerd?",
+      "options": [
+        "Hubble",
+        "James Webb",
+        "Kepler",
+        "Chandra"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "ruimte",
+      "question": "Hoe heet het punt in een planeetbaan dat het dichtst bij de zon ligt?",
+      "options": [
+        "Aphelium",
+        "Perihelium",
+        "Apogeum",
+        "Nadir"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "nederland",
+      "question": "Hoe heet de koning van Nederland?",
+      "options": [
+        "Willem-Alexander",
+        "Constantijn",
+        "Friso",
+        "Bernhard"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "nederland",
+      "question": "Wat is de langste rivier van Nederland?",
+      "options": [
+        "Rijn",
+        "Maas",
+        "IJssel",
+        "Waal"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "nederland",
+      "question": "Welke stad heeft het bijnaam 'Mokum'?",
+      "options": [
+        "Rotterdam",
+        "Utrecht",
+        "Amsterdam",
+        "Den Haag"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "nederland",
+      "question": "Welk jaar vond de grote watersnoodramp plaats?",
+      "options": [
+        "1945",
+        "1953",
+        "1963",
+        "1976"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "nederland",
+      "question": "Welk gerecht is typisch Nederlands?",
+      "options": [
+        "Paella",
+        "Stamppot",
+        "Moussaka",
+        "Schnitzel"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "nederland",
+      "question": "Welke Nederlandse sinterklaastraditie gebeurt op 5 december?",
+      "options": [
+        "Koningsdag",
+        "Pakjesavond",
+        "Suikerfeest",
+        "Kerstavond"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "nederland",
+      "question": "Welk Nederlands bier is wereldwijd bekend?",
+      "options": [
+        "Grolsch",
+        "Heineken",
+        "Amstel",
+        "Bavaria"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "nederland",
+      "question": "Welke stad is het regeringscentrum van Nederland?",
+      "options": [
+        "Amsterdam",
+        "Rotterdam",
+        "Den Haag",
+        "Utrecht"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "nederland",
+      "question": "Wat is de naam van het Nederlandse koningshuis?",
+      "options": [
+        "Habsburg",
+        "Oranje-Nassau",
+        "Bourbon",
+        "Romanov"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "nederland",
+      "question": "Welke stad heet ook wel de hoofdstad van het noorden?",
+      "options": [
+        "Leeuwarden",
+        "Groningen",
+        "Assen",
+        "Zwolle"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "nederland",
+      "question": "Hoe heet het grootste meer van Nederland?",
+      "options": [
+        "Markermeer",
+        "IJsselmeer",
+        "Veluwemeer",
+        "Grevelingenmeer"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "nederland",
+      "question": "In welk jaar werd Koningsdag ingevoerd (als opvolger van Koninginnedag)?",
+      "options": [
+        "2010",
+        "2013",
+        "2014",
+        "2016"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "nederland",
+      "question": "Hoe heet het wereldberoemde Amsterdamse museum voor moderne kunst?",
+      "options": [
+        "Stedelijk Museum",
+        "Van Gogh Museum",
+        "Rijksmuseum",
+        "Mauritshuis"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "nederland",
+      "question": "Welke havenstad is de grootste van Europa?",
+      "options": [
+        "Antwerpen",
+        "Hamburg",
+        "Rotterdam",
+        "Le Havre"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "dieren",
+      "question": "Welk dier is het grootste dat ooit op aarde heeft geleefd?",
+      "options": [
+        "Afrikaanse olifant",
+        "Tyrannosaurus Rex",
+        "Blauwe vinvis",
+        "Apatosaurus"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "dieren",
+      "question": "Hoeveel harten heeft een octopus?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "dieren",
+      "question": "Welk dier kan niet achteruit lopen?",
+      "options": [
+        "Nijlpaard",
+        "Kangoeroe",
+        "Emoe",
+        "Alle drie"
+      ],
+      "answer": 3
+    },
+    {
+      "category": "dieren",
+      "question": "Hoe heet een jonge kikker?",
+      "options": [
+        "Kikkerkind",
+        "Larve",
+        "Donderpadje",
+        "Kwaker"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "dieren",
+      "question": "Welke vogel kan achteruit vliegen?",
+      "options": [
+        "Zwaluw",
+        "Kolibrie",
+        "Mus",
+        "Havik"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "dieren",
+      "question": "Welk dier is het snelste landdier?",
+      "options": [
+        "Leeuw",
+        "Jachtluipaard",
+        "Paard",
+        "Antilope"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "dieren",
+      "question": "Hoeveel poten heeft een spin?",
+      "options": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "dieren",
+      "question": "Welk dier heet ook wel 'woestijnschip'?",
+      "options": [
+        "Paard",
+        "Kameel",
+        "Ezel",
+        "Muilezel"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "dieren",
+      "question": "Welk dier legt eieren maar is een zoogdier?",
+      "options": [
+        "Vogelbekdier",
+        "Egel",
+        "Wombat",
+        "Koala"
+      ],
+      "answer": 0
+    },
+    {
+      "category": "dieren",
+      "question": "Hoe lang is de draagtijd van een olifant ongeveer?",
+      "options": [
+        "9 maanden",
+        "12 maanden",
+        "18 maanden",
+        "22 maanden"
+      ],
+      "answer": 3
+    },
+    {
+      "category": "dieren",
+      "question": "Wat eet een panda voornamelijk?",
+      "options": [
+        "Vis",
+        "Bamboe",
+        "Vlees",
+        "Insecten"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "dieren",
+      "question": "Welk dier leeft het langst?",
+      "options": [
+        "Olifant",
+        "Schildpad",
+        "Papegaai",
+        "Walvis"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "dieren",
+      "question": "Hoeveel kamers heeft het hart van een koe?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "dieren",
+      "question": "Welk dier wordt ook wel 'koning van de jungle' genoemd?",
+      "options": [
+        "Tijger",
+        "Leeuw",
+        "Olifant",
+        "Panter"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "mythologie",
+      "question": "Wie is de Griekse god van de zee?",
+      "options": [
+        "Zeus",
+        "Poseidon",
+        "Hades",
+        "Apollo"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "mythologie",
+      "question": "Welke Noorse god wordt geassocieerd met donder en bliksem?",
+      "options": [
+        "Odin",
+        "Loki",
+        "Thor",
+        "Freyr"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "mythologie",
+      "question": "Wie was volgens de Griekse mythologie de boodschapper van de goden?",
+      "options": [
+        "Ares",
+        "Hermes",
+        "Dionysos",
+        "Hephaistos"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "mythologie",
+      "question": "Wie doodde volgens de Griekse mythologie de Minotaurus?",
+      "options": [
+        "Perseus",
+        "Theseus",
+        "Heracles",
+        "Achilles"
+      ],
+      "answer": 1
+    },
+    {
+      "category": "mythologie",
+      "question": "Wie is de Egyptische god van de zon?",
+      "options": [
+        "Osiris",
+        "Anubis",
+        "Ra",
+        "Horus"
+      ],
+      "answer": 2
+    },
+    {
+      "category": "geschiedenis",
+      "question": "In welk jaar werd John F. Kennedy vermoord?",
+      "options": [
+        "1961",
+        "1963",
+        "1965",
+        "1968"
+      ],
+      "answer": 1
     }
   ]
 }
