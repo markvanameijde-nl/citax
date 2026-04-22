@@ -46,6 +46,7 @@ const els = {
 
 const state = {
   questions: [],
+  bag: [],
   current: null,
   answered: false,
   score: loadScore(),
@@ -181,19 +182,39 @@ function flash(kind) {
 
 /* ---------- Quiz flow ---------- */
 
+/* ---------- Question pool (sampling without replacement) ----------
+
+   We keep a shuffled "bag" of questions and pop from it. When the bag is
+   empty we reshuffle, so every question appears once before any question
+   repeats. To avoid the last question of one bag becoming the first of
+   the next, we re-draw if that collision happens. */
+
+function shuffleInPlace(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function refillBag() {
+  state.bag = shuffleInPlace(state.questions.slice());
+  // Prevent back-to-back repeats across bag boundaries.
+  if (
+    state.current &&
+    state.bag.length > 1 &&
+    state.bag[state.bag.length - 1] === state.current
+  ) {
+    const last = state.bag.pop();
+    const insertAt = Math.floor(Math.random() * state.bag.length);
+    state.bag.splice(insertAt, 0, last);
+  }
+}
+
 function pickRandomQuestion() {
   if (!state.questions.length) return null;
-  // Avoid immediately repeating the previous question when possible.
-  const prev = state.current;
-  let pick = state.questions[Math.floor(Math.random() * state.questions.length)];
-  if (prev && state.questions.length > 1) {
-    let guard = 0;
-    while (pick === prev && guard < 10) {
-      pick = state.questions[Math.floor(Math.random() * state.questions.length)];
-      guard++;
-    }
-  }
-  return pick;
+  if (!state.bag || state.bag.length === 0) refillBag();
+  return state.bag.pop();
 }
 
 function renderQuestion(q) {
