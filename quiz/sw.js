@@ -6,7 +6,7 @@
    Bump CACHE_VERSION when any cached file changes.
    ------------------------------------------------------------- */
 
-const CACHE_VERSION = "v3";
+const CACHE_VERSION = "v4";
 const CACHE_NAME = `citax-quiz-${CACHE_VERSION}`;
 
 const PRECACHE_URLS = [
