@@ -221,11 +221,59 @@
         }
         .num-btn.ok:active { background: #3c7c4c; }
 
+        /* --- Tafels screen --- */
+        #tafels h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin: 16px 0 4px;
+        }
+        #tafels .subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+        }
+        .tafels-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .tafel-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            align-content: center;
+            padding-bottom: 12px;
+        }
+        .tafel-btn {
+            background: #2a2a4a;
+            color: #fff;
+            border: 2px solid #3a3a5c;
+            border-radius: 16px;
+            font-size: 2rem;
+            font-weight: 700;
+            cursor: pointer;
+            min-height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: inherit;
+            transition: transform 0.08s, background 0.15s;
+            color: #f75a8c;
+        }
+        .tafel-btn:active {
+            transform: scale(0.94);
+            background: #3a3a6a;
+        }
+
         @media (max-width: 380px) {
             .op-btn { font-size: 4.5rem; min-height: 100px; border-radius: 20px; }
             .num-btn { font-size: 1.8rem; min-height: 56px; padding: 10px 0; }
             #home h1 { font-size: 1.5rem; margin: 16px 0 4px; }
             #home .subtitle { font-size: 1rem; margin-bottom: 20px; }
+            #tafels h1 { font-size: 1.5rem; }
+            .tafel-btn { font-size: 1.5rem; min-height: 54px; }
         }
 
         @media (max-height: 640px) {
@@ -233,6 +281,7 @@
             .num-btn { min-height: 52px; padding: 8px 0; font-size: 1.7rem; }
             .op-btn { min-height: 90px; font-size: 4rem; }
             .feedback-text { font-size: 1.15rem; min-height: 1.3rem; }
+            .tafel-btn { min-height: 48px; font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -247,6 +296,15 @@
         <button class="op-btn times"  data-op="*" aria-label="Vermenigvuldigen">×</button>
         <button class="op-btn divide" data-op="/" aria-label="Delen">÷</button>
     </div>
+</section>
+
+<section id="tafels" class="screen">
+    <div class="tafels-top">
+        <button class="back-btn" id="tafels-back-btn">&larr; Terug</button>
+    </div>
+    <h1>TAFELS</h1>
+    <p class="subtitle">Welke tafel wil je oefenen?</p>
+    <div class="tafel-grid" id="tafel-grid"></div>
 </section>
 
 <section id="practice" class="screen">
@@ -317,12 +375,16 @@
     const OP_SPOKEN  = { '+': 'plus', '-': 'min', '*': 'keer', '/': 'gedeeld door' };
 
     let currentOp = null;
+    let currentTafel = null; // chosen multiplication table (1-20) when op === '*'
     let currentSum = null;
     let score = { good: 0, bad: 0 };
     let answerInput = '';
     let locked = false;
 
     const homeScreen     = document.getElementById('home');
+    const tafelsScreen   = document.getElementById('tafels');
+    const tafelGridEl    = document.getElementById('tafel-grid');
+    const tafelsBackBtn  = document.getElementById('tafels-back-btn');
     const practiceScreen = document.getElementById('practice');
     const sumAEl         = document.getElementById('sum-a');
     const sumOpEl        = document.getElementById('sum-op');
@@ -347,14 +409,25 @@
         stopSpeech();
         clearBodyColor();
         practiceScreen.classList.remove('active');
+        tafelsScreen.classList.remove('active');
         homeScreen.classList.add('active');
     }
 
-    function showPractice(op) {
+    function showTafels() {
+        stopSpeech();
+        clearBodyColor();
+        homeScreen.classList.remove('active');
+        practiceScreen.classList.remove('active');
+        tafelsScreen.classList.add('active');
+    }
+
+    function showPractice(op, tafel) {
         currentOp = op;
+        currentTafel = tafel != null ? tafel : null;
         score = { good: 0, bad: 0 };
         updateScore();
         homeScreen.classList.remove('active');
+        tafelsScreen.classList.remove('active');
         practiceScreen.classList.add('active');
         nextSum();
     }
@@ -379,7 +452,7 @@
                 answer = a - b;
                 break;
             case '*':
-                a = randInt(1, 10);
+                a = currentTafel != null ? currentTafel : randInt(1, 10);
                 b = randInt(1, 10);
                 answer = a * b;
                 break;
@@ -510,16 +583,44 @@
         document.body.classList.remove('correct', 'wrong');
     }
 
+    // ---------- Tafels grid ----------
+    function buildTafelGrid() {
+        for (let i = 1; i <= 20; i++) {
+            const btn = document.createElement('button');
+            btn.className = 'tafel-btn';
+            btn.textContent = i;
+            btn.dataset.tafel = i;
+            tafelGridEl.appendChild(btn);
+        }
+    }
+    buildTafelGrid();
+
     // ---------- Event wiring ----------
     document.querySelectorAll('.op-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             tryFullscreen();
             stopSpeech();
-            showPractice(btn.dataset.op);
+            const op = btn.dataset.op;
+            if (op === '*') {
+                showTafels();
+            } else {
+                showPractice(op);
+            }
         });
     });
 
-    backBtn.addEventListener('click', showHome);
+    tafelGridEl.addEventListener('click', (e) => {
+        const btn = e.target.closest('.tafel-btn');
+        if (!btn) return;
+        showPractice('*', parseInt(btn.dataset.tafel, 10));
+    });
+
+    tafelsBackBtn.addEventListener('click', showHome);
+
+    backBtn.addEventListener('click', () => {
+        if (currentOp === '*') showTafels();
+        else showHome();
+    });
 
     repeatBtn.addEventListener('click', () => {
         if (!currentSum) return;
