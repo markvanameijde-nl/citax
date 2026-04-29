@@ -376,6 +376,7 @@
 
     let currentOp = null;
     let currentTafel = null; // chosen multiplication table (1-20) when op === '*'
+    let tafelQueue = [];     // shuffled remaining factors 1-20 for the current tafel
     let currentSum = null;
     let score = { good: 0, bad: 0 };
     let answerInput = '';
@@ -424,12 +425,28 @@
     function showPractice(op, tafel) {
         currentOp = op;
         currentTafel = tafel != null ? tafel : null;
+        tafelQueue = [];
         score = { good: 0, bad: 0 };
         updateScore();
         homeScreen.classList.remove('active');
         tafelsScreen.classList.remove('active');
         practiceScreen.classList.add('active');
         nextSum();
+    }
+
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    function nextTafelFactor() {
+        if (tafelQueue.length === 0) {
+            tafelQueue = shuffle(Array.from({ length: 20 }, (_, i) => i + 1));
+        }
+        return tafelQueue.pop();
     }
 
     // ---------- Sum generation ----------
@@ -452,8 +469,13 @@
                 answer = a - b;
                 break;
             case '*':
-                a = currentTafel != null ? currentTafel : randInt(1, 10);
-                b = randInt(1, 10);
+                if (currentTafel != null) {
+                    a = currentTafel;
+                    b = nextTafelFactor();
+                } else {
+                    a = randInt(1, 10);
+                    b = randInt(1, 10);
+                }
                 answer = a * b;
                 break;
             case '/':
